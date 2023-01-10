@@ -13,6 +13,7 @@
 
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
+#include <boost/optional.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/tokenizer.hpp>
 #include <curl/curl.h>
@@ -28,8 +29,8 @@
 
 #include "filesystem.h"
 #include "mjolnir/admin.h"
+#include "mjolnir/ingest_transit.h"
 #include "mjolnir/servicedays.h"
-#include "mjolnir/transitpbf.h"
 #include "mjolnir/util.h"
 #include "valhalla/proto/transit.pb.h"
 

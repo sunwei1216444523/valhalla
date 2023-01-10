@@ -80,9 +80,9 @@ thor_worker_t::thor_worker_t(const boost::property_tree::ptree& config,
   for (const auto& kv : config.get_child("service_limits")) {
     if (kv.first == "max_exclude_locations" || kv.first == "max_reachability" ||
         kv.first == "max_radius" || kv.first == "max_timedep_distance" ||
-        kv.first == "max_alternates" || kv.first == "max_exclude_polygons_length" ||
-        kv.first == "skadi" || kv.first == "trace" || kv.first == "isochrone" ||
-        kv.first == "centroid" || kv.first == "status") {
+        kv.first == "max_timedep_distance_matrix" || kv.first == "max_alternates" ||
+        kv.first == "max_exclude_polygons_length" || kv.first == "skadi" || kv.first == "trace" ||
+        kv.first == "isochrone" || kv.first == "centroid" || kv.first == "status") {
       continue;
     }
 
@@ -226,8 +226,7 @@ std::string thor_worker_t::parse_costing(const Api& request) {
   return costing_str;
 }
 
-void thor_worker_t::parse_locations(Api& request) {
-  auto& options = *request.mutable_options();
+void thor_worker_t::adjust_scores(valhalla::Options& options) {
   for (auto* locations :
        {options.mutable_locations(), options.mutable_sources(), options.mutable_targets()}) {
     for (auto& location : *locations) {

@@ -1,13 +1,12 @@
-#include "test.h"
+#include <algorithm> // std::copy
+#include <optional>
+
+#include <boost/property_tree/ptree.hpp>
 
 #include "loki/worker.h"
 #include "odin/worker.h"
+#include "test.h"
 #include "thor/worker.h"
-
-#include <boost/optional.hpp>
-#include <boost/property_tree/ptree.hpp>
-
-#include <algorithm> // std::copy
 
 #if !defined(VALHALLA_SOURCE_DIR)
 #define VALHALLA_SOURCE_DIR
@@ -59,7 +58,7 @@ void test_request(const std::string& request,
                   // We mark only the maneuvers that are RentBike and ReturnBike
                   const std::map<size_t, BssManeuverType>& expected_bss_maneuver,
                   const std::map<size_t, std::string>& expected_bss_ref = {},
-                  const boost::optional<const std::string&>& expected_shape = {}) {
+                  const std::optional<std::string>& expected_shape = {}) {
 
   route_tester tester;
   auto response = tester.test(request);
@@ -283,10 +282,10 @@ TEST(AstarBss, test_Truck) {
   std::string request =
       R"({"locations":[{"lat":48.859895,"lon":2.3610976338},{"lat":48.86271911,"lon":2.367111146}],"costing":"truck"})";
   std::vector<TravelMode> expected_travel_modes{TravelMode::kDrive};
-  std::vector<std::string> expected_route{"Rue de la Perle",        "Rue des Archives",
-                                          "Rue Pastourelle",        "Rue du Temple",
-                                          "Place de la République", "Boulevard du Temple",
-                                          "Rue Oberkampf",          "Rue Amelot"};
+  std::vector<std::string>
+      expected_route{"Rue de la Perle",     "Rue des Archives",       "Rue Pastourelle",
+                     "Rue du Temple",       "Place de la République", "Place de la République",
+                     "Boulevard du Temple", "Rue Oberkampf",          "Rue Amelot"};
   // There shouldn't be any bss maneuvers
   const std::map<size_t, BssManeuverType>& expected_bss_maneuver{};
 

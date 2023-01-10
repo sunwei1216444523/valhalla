@@ -64,6 +64,8 @@ std::string thor_worker_t::expansion(Api& request) {
     // unfortunately we have to call this before checking if we can skip
     // else the tile could change underneath us when we get the opposing
     auto shape = tile->edgeinfo(edge).shape();
+    auto names = tile->edgeinfo(edge).GetNames();
+    auto is_forward = edge->forward();
 
     // if requested, skip this edge in case its opposite edge has been added
     // before (i.e. lower cost) else add this edge's id to the lookup container
@@ -101,19 +103,19 @@ std::string thor_worker_t::expansion(Api& request) {
       Pointer(kPropPaths[Options_ExpansionProperties_durations])
           .Get(dom)
           ->GetArray()
-          .PushBack(Value{}.SetInt(static_cast<uint64_t>(duration)), a);
+          .PushBack(Value{}.SetUint(static_cast<uint32_t>(duration)), a);
     }
     if (exp_props.count(Options_ExpansionProperties_distances)) {
       Pointer(kPropPaths[Options_ExpansionProperties_distances])
           .Get(dom)
           ->GetArray()
-          .PushBack(Value{}.SetInt(distance), a);
+          .PushBack(Value{}.SetUint(distance), a);
     }
     if (exp_props.count(Options_ExpansionProperties_costs)) {
       Pointer(kPropPaths[Options_ExpansionProperties_costs])
           .Get(dom)
           ->GetArray()
-          .PushBack(Value{}.SetInt(static_cast<uint64_t>(cost)), a);
+          .PushBack(Value{}.SetUint(static_cast<uint32_t>(cost)), a);
     }
     if (exp_props.count(Options_ExpansionProperties_statuses))
       Pointer(kPropPaths[Options_ExpansionProperties_statuses])
@@ -124,7 +126,7 @@ std::string thor_worker_t::expansion(Api& request) {
       Pointer(kPropPaths[Options_ExpansionProperties_edge_ids])
           .Get(dom)
           ->GetArray()
-          .PushBack(Value{}.SetInt(static_cast<uint64_t>(edgeid)), a);
+          .PushBack(Value{}.SetUint64(static_cast<uint64_t>(edgeid)), a);
   };
 
   // tell all the algorithms how to track expansion
@@ -137,7 +139,7 @@ std::string thor_worker_t::expansion(Api& request) {
        }) {
     alg->set_track_expansion(track_expansion);
   }
-  isochrone_gen.set_track_expansion(track_expansion);
+  isochrone_gen.SetInnerExpansionCallback(track_expansion);
 
   try {
     // track the expansion
@@ -156,7 +158,7 @@ std::string thor_worker_t::expansion(Api& request) {
                                                &bidir_astar, &bss_astar}) {
     alg->set_track_expansion(nullptr);
   }
-  isochrone_gen.set_track_expansion(nullptr);
+  isochrone_gen.SetInnerExpansionCallback(nullptr);
 
   // serialize it
   return to_string(dom, 5);
