@@ -1,0 +1,33 @@
+# cc_library(
+#     name = "baldr",
+#     hdrs = [
+#         "//valhalla/baldr/*.h"
+#     ],
+#     srcs = [
+#         # TODO: 完成date_time_xxx.h的文件自动生成后添加，可能考虑为deps
+#         "//src/baldr/*.cc",
+#         "//src/baldr/*.h",
+#     ],
+#     deps = [
+#         # midgrad
+#         # proto
+#         # boost
+#         # curl
+#         # zlib
+#     ],
+# )
+
+cc_library(
+    name = "midgard",
+    hdrs = [
+        "valhalla/midgard/*.h",
+    ],
+    srcs = [
+        "src/midgard/*.cc",
+    ],
+    deps = [
+        "@boost//:fiber",
+        # boost
+        # robin_hood::robin_hood
+    ]
+)
