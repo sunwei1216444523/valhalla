@@ -1,10 +1,10 @@
 #pragma once
 
 #include <cstdint>
-#include <valhalla/midgard/aabb2.h>
-#include <valhalla/midgard/linesegment2.h>
-#include <valhalla/midgard/point2.h>
-#include <valhalla/midgard/pointll.h>
+#include "valhalla/midgard/aabb2.h"
+#include "valhalla/midgard/linesegment2.h"
+#include "valhalla/midgard/point2.h"
+#include "valhalla/midgard/pointll.h"
 
 #include <list>
 #include <tuple>

@@ -19,15 +19,30 @@
 
 cc_library(
     name = "midgard",
-    hdrs = [
-        "valhalla/midgard/*.h",
+    hdrs = glob(["valhalla/midgard/*.h",]) + [
+        "valhalla/filesystem.h",
+        # "third_party/robin-hood-hashing/src/include/robin_hood.h",
     ],
-    srcs = [
-        "src/midgard/*.cc",
-    ],
+    srcs = glob(["src/midgard/*.cc",]),
     deps = [
         "@boost//:fiber",
+        "//third_party/robin-hood-hashing:robin-hood",
         # boost
         # robin_hood::robin_hood
+    ],
+    copts = [
+        "-Ivalhalla",
+        "-Ivalhalla/midgard",
+        "-Ithird_party/robin-hood-hashing/src/include",
+    ],
+)
+
+cc_binary(
+    name = "sunweitest",
+    srcs = [
+        "sunweitest.cc",
+    ],
+    deps = [
+        ":midgard",
     ]
 )
