@@ -1,0 +1,1 @@
+./build/valhalla_build_tiles --config sunwei_valhalla_config.json --input_files /mnt/d/mapdata/home.pbf
