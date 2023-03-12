@@ -49,7 +49,7 @@ function(BIN2H)
     set(oneValueArgs SOURCE_FILE VARIABLE_NAME HEADER_FILE SKIP_LINES)
     cmake_parse_arguments(BIN2H "${options}" "${oneValueArgs}" "" ${ARGN})
 
-    if(BIN2H_SKIP_LINES AND NOT BIN2H_SKIP_LINES EQUAL 1)
+    if(  AND NOT BIN2H_SKIP_LINES EQUAL 1)
       message(AUTHOR_WARNING "Only 1 line skip is supported")
     endif()
 
@@ -59,8 +59,10 @@ function(BIN2H)
     if(BIN2H_RAW AND NOT MSVC)
       file(READ ${BIN2H_SOURCE_FILE} string)
       if(BIN2H_SKIP_LINES)
+      # 相当于把 /n作为分隔符 提取分隔符外的字符串，然后去掉/n之前的内容，相当于就是skip了一行
         string(FIND "${string}" "\n" pos)
         math(EXPR pos "${pos}+1")
+        #  If <length> is -1 the remainder of the string starting at {pos} will be returned.
         string(SUBSTRING "${string}" ${pos} -1 string)
       endif()
       
@@ -132,6 +134,7 @@ if(CMAKE_SCRIPT_MODE_FILE AND "${CMAKE_SCRIPT_MODE_FILE}" MATCHES "Binary2Header
   set(ARG_NUM 1)
   set(conversion_type "HEADER")
   set(options "")
+  # 循环处理所有给出的参数，可能是决定函数调用或者函数参数（写入到options里面）
   while(ARG_NUM LESS CMAKE_ARGC)
     set(CURRENT_ARG ${CMAKE_ARGV${ARG_NUM}})
     if(${CURRENT_ARG} MATCHES "^--usage$")
