@@ -21,18 +21,18 @@ cc_library(
     name = "midgard",
     hdrs = glob(["valhalla/midgard/*.h",]) + [
         "valhalla/filesystem.h",
-        # 以下不应该添加
-        # "third_party/robin-hood-hashing/src/include/robin_hood.h",
+        # 以下还是得添加
+        "third_party/robin-hood-hashing/src/include/robin_hood.h",
     ],
     srcs = glob(["src/midgard/*.cc",]),
     includes = [
         "valhalla/midgard",
         "valhalla",
-        "third_party/robin-hood-hashing/src/include/"
+        "third_party/robin-hood-hashing/src/include"
     ],
     deps = [
         "@boost//:fiber",
-        "//third_party/robin-hood-hashing:robin-hood",
+        # "//third_party/robin-hood-hashing:robin-hood",
         # boost
         # robin_hood::robin_hood
     ],
