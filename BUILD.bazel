@@ -1,3 +1,5 @@
+load("//bazel_script/date_time_header.bzl", "cc_date_time")
+
 # cc_library(
 #     name = "baldr",
 #     hdrs = [
@@ -16,6 +18,8 @@
 #         # zlib
 #     ],
 # )
+
+### midgard
 
 cc_library(
     name = "midgard",
@@ -44,6 +48,13 @@ cc_library(
     #     "-Ivalhalla/midgard",
     #     "-Ithird_party/robin-hood-hashing/src/include",
     # ],
+)
+
+#### Baldr
+cc_library(
+    name = "date_time_lib",
+    hdrs = cc_date_time(["africa", "europe"]),
+    visibility = ["//visibility:public"],
 )
 
 cc_binary(
