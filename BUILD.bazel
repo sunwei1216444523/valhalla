@@ -1,4 +1,7 @@
-load("//bazel_script/date_time_header.bzl", "cc_date_time")
+# load("@bazel_tools//tools/build_defs/repo:subpar.bzl", "subpar_repositories")
+# subpar_repositories()
+
+load("//:bazel_script/date_time.bzl", "generate_header_files")
 
 # cc_library(
 #     name = "baldr",
@@ -51,9 +54,15 @@ cc_library(
 )
 
 #### Baldr
+# cc_library(
+#     name = "date_time_lib",
+#     hdrs = cc_date_time(["africa", "europe"]),
+#     visibility = ["//visibility:public"],
+# )
 cc_library(
-    name = "date_time_lib",
-    hdrs = cc_date_time(["africa", "europe"]),
+    name = "baldr",
+    srcs = glob(["src/*.cc"]),
+    hdrs = generate_header_files(ctx) + glob(["valhalla/baldr/*.h"]),
     visibility = ["//visibility:public"],
 )
 
