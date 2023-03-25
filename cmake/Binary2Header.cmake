@@ -49,7 +49,7 @@ function(BIN2H)
     set(oneValueArgs SOURCE_FILE VARIABLE_NAME HEADER_FILE SKIP_LINES)
     cmake_parse_arguments(BIN2H "${options}" "${oneValueArgs}" "" ${ARGN})
 
-    if(  AND NOT BIN2H_SKIP_LINES EQUAL 1)
+    if(BIN2H_SKIP_LINES AND NOT BIN2H_SKIP_LINES EQUAL 1)
       message(AUTHOR_WARNING "Only 1 line skip is supported")
     endif()
 
