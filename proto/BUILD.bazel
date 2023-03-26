@@ -1,0 +1,68 @@
+proto_library(
+    name = "api_proto",
+    srcs = ["api.proto"],
+    deps = [
+        ":options_proto",
+        ":trip_proto",
+        ":directions_proto",
+        ":info_proto",
+        ":status_proto"
+    ]
+)
+
+proto_library(
+    name = "common_proto",
+    srcs = ["common.proto"],
+)
+
+proto_library(
+    name = "directions_proto",
+    srcs = ["directions.proto"],
+    deps = [
+        ":common_proto",
+        ":sign_proto",
+    ]
+)
+
+proto_library(
+    name = "incidents_proto",
+    srcs = ["incidents.proto"],
+)
+
+proto_library(
+    name = "info_proto",
+    srcs = ["info.proto"],
+)
+
+proto_library(
+    name = "options_proto",
+    srcs = ["options.proto"],
+    deps = [":common_proto"]
+)
+
+proto_library(
+    name = "sign_proto",
+    srcs = "sign.proto",
+    deps = [":common_proto"],
+)
+
+proto_library(
+    name = "status_proto",
+    srcs = ["status.proto"],
+)
+
+proto_library(
+    name = "transit_fetch_proto",
+    srcs = ["trandit_fetch.proto"],
+)
+
+proto_library(
+    name = "transit_proto",
+    srcs = ["trandit.proto"],
+)
+
+proto_library(
+    name = "trip_proto",
+    srcs = ["trip.proto"]
+)
+

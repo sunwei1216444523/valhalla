@@ -1,26 +1,27 @@
 # load("@bazel_tools//tools/build_defs/repo:subpar.bzl", "subpar_repositories")
 # subpar_repositories()
 
-load("//:bazel_script/date_time.bzl", "generate_header_files")
+load("//:bazel_script/convert_header.bzl", "convert")
 
-# cc_library(
-#     name = "baldr",
-#     hdrs = [
-#         "//valhalla/baldr/*.h"
-#     ],
-#     srcs = [
-#         # TODO: 完成date_time_xxx.h的文件自动生成后添加，可能考虑为deps
-#         "//src/baldr/*.cc",
-#         "//src/baldr/*.h",
-#     ],
-#     deps = [
-#         # midgrad
-#         # proto
-#         # boost
-#         # curl
-#         # zlib
-#     ],
-# )
+cc_library(
+    name = "baldr",
+    hdrs = [
+        "//valhalla/baldr/*.h"
+    ],
+    srcs = [
+        # TODO: 完成date_time_xxx.h的文件自动生成后添加，可能考虑为deps
+        # 暂时拷贝生成的文件即可
+        "//src/baldr/*.cc",
+        "//src/baldr/*.h",
+    ],
+    deps = [
+        midgrad
+        # proto
+        # boost
+        # curl
+        # zlib
+    ],
+)
 
 ### midgard
 
@@ -59,11 +60,16 @@ cc_library(
 #     hdrs = cc_date_time(["africa", "europe"]),
 #     visibility = ["//visibility:public"],
 # )
-cc_library(
-    name = "baldr",
-    srcs = glob(["src/*.cc"]),
-    hdrs = generate_header_files(ctx) + glob(["valhalla/baldr/*.h"]),
-    visibility = ["//visibility:public"],
+# cc_library(
+#     name = "baldr",
+#     srcs = glob(["src/*.cc"]),
+#     hdrs = generate_header_files(ctx) + glob(["valhalla/baldr/*.h"]),
+#     visibility = ["//visibility:public"],
+# )
+
+convert(
+    name = "test_bf",
+    binary_files = glob(["date_time/*"]),
 )
 
 cc_binary(
