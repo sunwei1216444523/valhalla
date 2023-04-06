@@ -3,7 +3,7 @@
 
 #include <cstdint>
 #include <stdint.h>
-#include <valhalla/midgard/util.h>
+#include "valhalla/midgard/util.h"
 
 namespace valhalla {
 namespace baldr {

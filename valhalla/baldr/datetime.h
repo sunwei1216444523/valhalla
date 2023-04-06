@@ -16,14 +16,14 @@
 // https://github.com/valhalla/valhalla/pull/3878#issuecomment-1365487437
 #define HAS_UNCAUGHT_EXCEPTIONS 1
 
-#include <date/date.h>
-#include <date/tz.h>
+#include "date/date.h"
+#include "date/tz.h"
 
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/nodeinfo.h>
-#include <valhalla/midgard/constants.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/nodeinfo.h"
+#include "valhalla/midgard/constants.h"
 
-#include <valhalla/proto/common.pb.h>
+#include "valhalla/proto/common.pb.h"
 
 namespace valhalla {
 namespace baldr {

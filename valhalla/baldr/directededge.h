@@ -2,10 +2,10 @@
 #define VALHALLA_BALDR_DIRECTEDEDGE_H_
 
 #include <cstdint>
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/baldr/json.h>
-#include <valhalla/baldr/turn.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/baldr/json.h"
+#include "valhalla/baldr/turn.h"
 
 namespace valhalla {
 namespace baldr {

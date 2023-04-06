@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/streetname.h>
+#include "valhalla/baldr/streetname.h"
 
 namespace valhalla {
 namespace baldr {

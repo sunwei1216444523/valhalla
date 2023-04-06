@@ -3,7 +3,7 @@
 
 #include <cstdint>
 #include <stdexcept>
-#include <valhalla/baldr/graphconstants.h>
+#include "valhalla/baldr/graphconstants.h"
 
 namespace valhalla {
 namespace baldr {

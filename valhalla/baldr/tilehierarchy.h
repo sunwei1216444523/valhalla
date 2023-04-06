@@ -5,10 +5,10 @@
 #include <map>
 #include <string>
 
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/midgard/pointll.h>
-#include <valhalla/midgard/tiles.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/midgard/pointll.h"
+#include "valhalla/midgard/tiles.h"
 
 namespace valhalla {
 namespace baldr {

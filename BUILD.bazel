@@ -1,26 +1,22 @@
-# load("@bazel_tools//tools/build_defs/repo:subpar.bzl", "subpar_repositories")
-# subpar_repositories()
-
-load("//:bazel_script/convert_header.bzl", "convert")
-
 cc_library(
     name = "baldr",
-    hdrs = [
-        "//valhalla/baldr/*.h"
-    ],
-    srcs = [
-        # TODO: 完成date_time_xxx.h的文件自动生成后添加，可能考虑为deps
-        # 暂时拷贝生成的文件即可
-        "//src/baldr/*.cc",
-        "//src/baldr/*.h",
-    ],
+    hdrs = glob(["valhalla/baldr/*.h"]),
+    srcs = glob(["src/baldr/*.cc", "src/baldr/*.h",]),
     deps = [
-        midgrad
-        # proto
-        # boost
+        ":midgard",
+        "//proto:options_cc_proto",
+        "//proto:common_cc_proto",
+        "@com_google_protobuf//:protobuf",
+        "@boost//:filesystem",
+        "@boost//:system",
+        "@boost//:algorithm",
+        "@date//:date",
         # curl
         # zlib
     ],
+    # copts = [
+    #     "-std=c++14",
+    # ]
 )
 
 ### midgard
@@ -66,11 +62,6 @@ cc_library(
 #     hdrs = generate_header_files(ctx) + glob(["valhalla/baldr/*.h"]),
 #     visibility = ["//visibility:public"],
 # )
-
-convert(
-    name = "test_bf",
-    binary_files = glob(["date_time/*"]),
-)
 
 cc_binary(
     name = "sunweitest",

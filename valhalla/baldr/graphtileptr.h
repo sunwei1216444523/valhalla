@@ -2,8 +2,8 @@
 
 // we type alias the tile pointers as they are ubiquitous throughout the library
 
-#include <boost/intrusive_ptr.hpp>
-#include <boost/smart_ptr/intrusive_ref_counter.hpp>
+#include "boost/intrusive_ptr.hpp"
+#include "boost/smart_ptr/intrusive_ref_counter.hpp"
 #include <memory>
 
 namespace valhalla {

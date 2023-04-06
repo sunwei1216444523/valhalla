@@ -7,10 +7,10 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/baldr/json.h>
-#include <valhalla/midgard/util.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/baldr/json.h"
+#include "valhalla/midgard/util.h"
 
 namespace valhalla {
 namespace baldr {

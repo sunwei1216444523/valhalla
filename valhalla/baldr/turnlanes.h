@@ -6,7 +6,7 @@
 #include <stdint.h>
 #include <string>
 #include <unordered_map>
-#include <valhalla/midgard/util.h>
+#include "valhalla/midgard/util.h"
 #include <vector>
 
 namespace valhalla {

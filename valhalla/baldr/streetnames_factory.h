@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/streetnames.h>
-#include <valhalla/proto/common.pb.h>
+#include "valhalla/baldr/streetnames.h"
+#include "valhalla/proto/common.pb.h"
 
 namespace valhalla {
 namespace baldr {

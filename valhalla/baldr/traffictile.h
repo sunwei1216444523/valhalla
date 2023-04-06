@@ -13,14 +13,14 @@
 #include <memory>
 #include <string>
 #include <type_traits>
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphmemory.h>
-#include <valhalla/baldr/json.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphmemory.h"
+#include "valhalla/baldr/json.h"
 #include <vector>
 #else
 #include <stdint.h>
 #endif
-#include <valhalla/valhalla.h>
+#include "valhalla/valhalla.h"
 
 #ifndef C_ONLY_INTERFACE
 namespace valhalla {

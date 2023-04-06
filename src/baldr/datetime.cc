@@ -4,8 +4,8 @@
 #include <iostream>
 #include <sstream>
 
-#include <boost/algorithm/string.hpp>
-#include <boost/algorithm/string/classification.hpp>
+#include "boost/algorithm/string.hpp"
+#include "boost/algorithm/string/classification.hpp"
 
 #include "baldr/datetime.h"
 #include "baldr/graphconstants.h"

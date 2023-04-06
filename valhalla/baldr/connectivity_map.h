@@ -1,8 +1,8 @@
 #ifndef VALHALLA_BALDR_CONNECTIVITY_MAP_H_
 #define VALHALLA_BALDR_CONNECTIVITY_MAP_H_
 
-#include <valhalla/baldr/graphreader.h>
-#include <valhalla/baldr/pathlocation.h>
+#include "valhalla/baldr/graphreader.h"
+#include "valhalla/baldr/pathlocation.h"
 
 #include <cstdint>
 #include <unordered_map>

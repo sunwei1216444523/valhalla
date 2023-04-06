@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/json.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/json.h"
 
 namespace valhalla {
 namespace baldr {

@@ -5,7 +5,7 @@
 #include <optional>
 #include <string>
 
-#include <valhalla/proto/common.pb.h>
+#include "valhalla/proto/common.pb.h"
 
 namespace valhalla {
 namespace baldr {

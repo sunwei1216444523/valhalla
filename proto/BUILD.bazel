@@ -1,3 +1,10 @@
+cc_proto_library(
+    name = "api_cc_proto",
+    deps = [
+        ":api_proto",
+    ]
+)
+
 proto_library(
     name = "api_proto",
     srcs = ["api.proto"],
@@ -7,7 +14,22 @@ proto_library(
         ":directions_proto",
         ":info_proto",
         ":status_proto"
-    ]
+    ],
+    # exports = [
+    #     ":options_proto",
+    #     ":trip_proto",
+    #     ":directions_proto",
+    #     ":info_proto",
+    #     ":status_proto"
+    # ],
+)
+
+cc_proto_library(
+    name = "common_cc_proto",
+    deps = [
+        ":common_proto",
+    ],
+    visibility = ["//visibility:public"]
 )
 
 proto_library(
@@ -21,7 +43,11 @@ proto_library(
     deps = [
         ":common_proto",
         ":sign_proto",
-    ]
+    ],
+    # exports = [
+    #     ":common_proto",
+    #     ":sign_proto",
+    # ],
 )
 
 proto_library(
@@ -34,16 +60,26 @@ proto_library(
     srcs = ["info.proto"],
 )
 
+cc_proto_library(
+    name = "options_cc_proto",
+    deps = [
+        ":options_proto",
+    ],
+    visibility = ["//visibility:public"]
+)
+
 proto_library(
     name = "options_proto",
     srcs = ["options.proto"],
-    deps = [":common_proto"]
+    deps = [":common_proto"],
+    # exports = [":common_proto"],
 )
 
 proto_library(
     name = "sign_proto",
-    srcs = "sign.proto",
+    srcs = ["sign.proto"],
     deps = [":common_proto"],
+    # exports = [":common_proto"],
 )
 
 proto_library(
@@ -63,6 +99,15 @@ proto_library(
 
 proto_library(
     name = "trip_proto",
-    srcs = ["trip.proto"]
+    srcs = ["trip.proto"],
+    deps = [
+        ":common_proto",
+        ":sign_proto",
+        ":incidents_proto"
+    ],
+    # exports = [
+    #     ":common_proto",
+    #     ":sign_proto",
+    # ],
 )
 

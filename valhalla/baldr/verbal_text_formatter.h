@@ -4,8 +4,8 @@
 #include <regex>
 #include <string>
 
-#include <valhalla/odin/markup_formatter.h>
-#include <valhalla/odin/sign.h>
+#include "valhalla/odin/markup_formatter.h"
+#include "valhalla/odin/sign.h"
 
 namespace valhalla {
 namespace baldr {

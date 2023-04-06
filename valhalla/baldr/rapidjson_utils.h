@@ -8,8 +8,8 @@
 #include <string>
 #include <type_traits>
 
-#include <boost/lexical_cast.hpp>
-#include <boost/optional.hpp>
+#include "boost/lexical_cast.hpp"
+#include "boost/optional.hpp"
 
 // rapidjson asserts by default but we dont want to crash running server
 // its more useful to throw and catch for our use case
@@ -23,16 +23,16 @@
 // Enbale std::string overloads
 #define RAPIDJSON_HAS_STDSTRING 1
 
-#include <rapidjson/allocators.h>
-#include <rapidjson/document.h>
-#include <rapidjson/error/en.h>
-#include <rapidjson/istreamwrapper.h>
-#include <rapidjson/pointer.h>
-#include <rapidjson/prettywriter.h>
-#include <rapidjson/rapidjson.h>
-#include <rapidjson/schema.h>
-#include <rapidjson/stringbuffer.h>
-#include <rapidjson/writer.h>
+#include "rapidjson/allocators.h"
+#include "rapidjson/document.h"
+#include "rapidjson/error/en.h"
+#include "rapidjson/istreamwrapper.h"
+#include "rapidjson/pointer.h"
+#include "rapidjson/prettywriter.h"
+#include "rapidjson/rapidjson.h"
+#include "rapidjson/schema.h"
+#include "rapidjson/stringbuffer.h"
+#include "rapidjson/writer.h"
 
 namespace rapidjson {
 
