@@ -37,6 +37,13 @@ proto_library(
     srcs = ["common.proto"],
 )
 
+cc_proto_library(
+    name = "directions_cc_proto",
+    deps = [
+        ":directions_proto",
+    ],
+    visibility = ["//visibility:public"])
+
 proto_library(
     name = "directions_proto",
     srcs = ["directions.proto"],
@@ -50,9 +57,25 @@ proto_library(
     # ],
 )
 
+cc_proto_library(
+    name = "incidents_cc_proto",
+    deps = [
+        ":incidents_proto",
+    ],
+    visibility = ["//visibility:public"]
+)
+
 proto_library(
     name = "incidents_proto",
     srcs = ["incidents.proto"],
+)
+
+cc_proto_library(
+    name = "info_cc_proto",
+    deps = [
+        ":info_proto",
+    ],
+    visibility = ["//visibility:public"]
 )
 
 proto_library(
@@ -75,6 +98,14 @@ proto_library(
     # exports = [":common_proto"],
 )
 
+cc_proto_library(
+    name = "sign_cc_proto",
+    deps = [
+        ":sign_proto",
+    ],
+    visibility = ["//visibility:public"]
+)
+
 proto_library(
     name = "sign_proto",
     srcs = ["sign.proto"],
@@ -82,9 +113,25 @@ proto_library(
     # exports = [":common_proto"],
 )
 
+cc_proto_library(
+    name = "status_cc_proto",
+    deps = [
+        ":status_proto",
+    ],
+    visibility = ["//visibility:public"]
+)
+
 proto_library(
     name = "status_proto",
     srcs = ["status.proto"],
+)
+
+cc_proto_library(
+    name = "transit_fetch_cc_proto",
+    deps = [
+        ":transit_fetch_proto",
+    ],
+    visibility = ["//visibility:public"]
 )
 
 proto_library(
@@ -92,9 +139,25 @@ proto_library(
     srcs = ["trandit_fetch.proto"],
 )
 
+cc_proto_library(
+    name = "transit_cc_proto",
+    deps = [
+        ":transit_proto",
+    ],
+    visibility = ["//visibility:public"]
+)
+
 proto_library(
     name = "transit_proto",
-    srcs = ["trandit.proto"],
+    srcs = ["transit.proto"],
+)
+
+cc_proto_library(
+    name = "trip_cc_proto",
+    deps = [
+        ":trip_proto",
+    ],
+    visibility = ["//visibility:public"]
 )
 
 proto_library(
