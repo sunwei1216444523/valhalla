@@ -49,5 +49,5 @@ protobuf_deps()
 new_local_repository(
     name = "date",
     path = "third_party/date",
-    build_file = "third_party/date/BUILD.bazel",
+    build_file = "third_party_build/date/BUILD.bazel",
 )
