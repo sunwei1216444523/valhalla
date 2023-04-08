@@ -1,0 +1,5 @@
+cc_library(
+    name = "dirent",
+    hdrs = ["include/dirent.h"],
+    srcs = ["examples/*.c"],
+)

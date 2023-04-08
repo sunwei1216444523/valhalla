@@ -1,0 +1,5 @@
+cc_library(
+    name = "protozero",
+    hdrs = glob(["incllude/protozero/*.hpp"]),
+    srcs = glob(["tools/*.cpp"]),
+)

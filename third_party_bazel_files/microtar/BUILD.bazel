@@ -1,0 +1,5 @@
+cc_library(
+    name = "microtar",
+    hdrs = ["microtar.h"],
+    srcs = ["microtar.c"],
+)

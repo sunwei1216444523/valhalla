@@ -31,11 +31,11 @@ rules_proto_dependencies()
 rules_proto_toolchains()
 
 # 如果通过http_archive下载的话，会报错，因为没有strip_prefix，com_google_protobuf会报错
-http_archive(
-    name = "com_google_googletest",
-    url = "https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip",
-    strip_prefix = "googletest-release-1.11.0",
-)
+# http_archive(
+#     name = "com_google_googletest",
+#     url = "https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip",
+#     strip_prefix = "googletest-release-1.11.0",
+# )
 
 git_repository(
     name = "com_google_protobuf",
@@ -46,8 +46,141 @@ git_repository(
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 protobuf_deps()
 
-new_local_repository(
+# OSM
+new_git_repository(
+    name = "osm_binary",
+    remote = "https://github.com/openstreetmap/OSM-binary.git",
+    commit = "4e32fa2",
+    build_file = "third_party_bazel_files/osm_binary/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "benchmark",
+    remote = "https://github.com/google/benchmark.git",
+    commit = "e991355",
+    build_file = "third_party_bazel_files/benchmark/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "cpp-statsd-client",
+    remote = "https://github.com/vthiery/cpp-statsd-client.git",
+    commit = "8cc00d0",
+    build_file = "third_party_bazel_files/cpp-statsd-client/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "cxxopts",
+    remote = "https://github.com/jarro2783/cxxopts.git",
+    commit = "302302b",
+    build_file = "third_party_bazel_files/cxxopts/BUILD.bazel",
+)
+
+# 使用git_repository替代local_repository
+new_git_repository(
     name = "date",
-    path = "third_party/date",
+    remote = "https://github.com/HowardHinnant/date.git",
+    commit = "302302b",
     build_file = "third_party_bazel_files/date/BUILD.bazel",
+)
+# new_local_repository(
+#     name = "date",
+#     path = "third_party/date",
+#     build_file = "third_party_bazel_files/date/BUILD.bazel",
+# )
+
+new_git_repository(
+    name = "dirent",
+    remote = "https://github.com/tronkko/dirent.git",
+    commit = "287ba92",
+    build_file = "third_party_bazel_files/dirent/BUILD.bazel",
+)
+
+# # python 项目，可能c++内部并不直接引用，而是间接产生中间文件
+# new_git_repository(
+#     name = "fastcov",
+#     remote = "https://github.com/RPGillespie6/fastcov.git",
+#     commit = "1128b0f",
+#     build_file = "third_party_bazel_files/fastcov/BUILD.bazel",
+# )
+
+# googletest 本身自带bazel文件
+git_repository(
+    name = "googletest",
+    remote = "https://github.com/google/googletest.git",
+    commit = "e2239ee",
+)
+
+new_git_repository(
+    name = "just_gtfs",
+    remote = "https://github.com/mapsme/just_gtfs.git",
+    commit = "a363830",
+    build_file = "third_party_bazel_files/just_gtfs/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "libosmium",
+    remote = "https://github.com/osmcode/libosmium.git",
+    commit = "9c50fde",
+    build_file = "third_party_bazel_files/libosmium/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "lz4",
+    remote = "https://github.com/lz4/lz4.git",
+    commit = "d443718",
+    build_file = "third_party_bazel_files/lz4/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "microtar",
+    remote = "https://github.com/rxi/microtar.git",
+    commit = "27076e1",
+    build_file = "third_party_bazel_files/microtar/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "protozero",
+    remote = "https://github.com/mapbox/protozero.git",
+    commit = "7487f81",
+    build_file = "third_party_bazel_files/protozero/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "pybind11",
+    remote = "https://github.com/pybind/pybind11.git",
+    commit = "914c06f",
+    build_file = "third_party_bazel_files/pybind11/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "rapidjson",
+    remote = "https://github.com/Tencent/rapidjson.git",
+    commit = "73063f5",
+    build_file = "third_party_bazel_files/rapidjson/BUILD.bazel",
+)
+
+new_git_repository(
+    name = "robin-hood-hashing",
+    remote = "https://github.com/martinus/robin-hood-hashing.git",
+    commit = "f2cae2e",
+    build_file = "third_party_bazel_files/robin-hood-hashing/BUILD.bazel",
+)
+
+# 安装版本的依赖库
+new_local_repository(
+    name = "sqlite3",
+    path = "/usr",
+    build_file = "third_party_bazel_files/sqlite3/BUILD.bazel",
+)
+
+new_local_repository(
+    name = "spatialite",
+    path = "/usr",
+    build_file = "third_party_bazel_files/spatialite/BUILD.bazel",
+)
+
+new_local_repository(
+    name = "curl",
+    path = "/usr",
+    build_file = "third_party_bazel_files/curl/BUILD.bazel",
 )

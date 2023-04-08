@@ -1,3 +1,94 @@
+# 组织所有代码在这
+# Baldr
+BALDR_HDRS = glob(["valhalla/baldr/*.h"])
+BALDR_SRCS = glob(["src/baldr/*.cc"])
+
+# Loki
+LOKI_HDRS = glob(["valhalla/loki/*.h"])
+LOKI_SRCS = glob(["src/loki/*.cc"])
+
+# Meili
+MEILI_HDRS = glob(["valhalla/meili/*.h"])
+MEILI_SRCS = glob(["src/meili/*.cc"])
+
+# midgard
+MIDGARD_HDRS = glob(["valhalla/midgard/*.h"])
+MIDGARD_SRCS = glob(["src/midgard/*.cc"])
+
+# Mjolnir
+MJOLNIR_HDRS = glob(["valhalla/mjolnir/*.h"])
+MJOLNIR_SRCS = glob(["src/mjolnir/*.cc"])
+
+# Odin
+ODIN_HDRS = glob(["valhalla/odin/*.h"])
+ODIN_SRCS = glob(["src/odin/*.cc"])
+
+# Sif
+SIF_HDRS = glob(["valhalla/sif/*.h"])
+SIF_SRCS = glob(["src/sif/*.cc"])
+
+# Skadi
+SKADI_HDRS = glob(["valhalla/skadi/*.h"])
+SKADI_SRCS = glob(["src/skadi/*.cc"])
+
+# thor
+THOR_HDRS = glob(["valhalla/thor/*.h"])
+THOR_SRCS = glob(["src/thor/*.cc"])
+
+# Tyr
+TYR_HDRS = glob(["valhalla/tyr/*.h"])
+TYR_SRCS = glob(["src/tyr/*.cc"])
+
+# Valhlla common
+COMMON_HDRS = glob(["valhalla/*.h"])
+COMMON_SRCS = glob(["src/*.cc"])
+
+
+cc_library(
+    name = "valhalla_core",
+    hdrs = BALDR_HDRS + LOKI_HDRS + MEILI_HDRS + MIDGARD_HDRS + MJOLNIR_HDRS + ODIN_HDRS + SIF_HDRS + SKADI_HDRS + THOR_HDRS + TYR_HDRS + COMMON_HDRS,
+    srcs = BALDR_SRCS + LOKI_SRCS + MEILI_SRCS + MIDGARD_SRCS + MJOLNIR_SRCS + ODIN_SRCS + SIF_SRCS + SKADI_SRCS + THOR_SRCS + TYR_SRCS + COMMON_SRCS,
+    deps = [
+        "//proto:api_cc_proto",
+        "//proto:common_cc_proto",
+        "//proto:directions_cc_proto",
+        "//proto:incident_cc_proto",
+        "//proto:info_cc_proto",
+        "//proto:options_cc_proto",
+        "//proto:signal_cc_proto",
+        "//proto:status_cc_proto",
+        "//proto:transit_cc_proto",
+        "//proto:transit_fetch_cc_proto",
+        "//proto:trip_cc_proto",
+        # 还得包括两个osm的proto
+        "@osm_binary//:osm_binary_proto",
+
+        "@com_google_protobuf//:protobuf",
+        "@boost//:filesystem",
+        "@boost//:system",
+        "@boost//:algorithm",
+        # third_party
+        "@benchmark//:benchmark",
+        "@cpp-statsd-client//:cpp-statsd-client",
+        "@cxxopts//:cxxopts",
+        "@date//:date",
+        "@dirent//:dirent",
+        "@googletest//:gtest",
+        "@just_gtfs//:just_gtfs",
+        "@libosmium//:libosmium",
+        "@lz4//:lz4",
+        "@microtar//:microtar",
+        "@protozero//:protozero",
+        "@pybind11//:pybind11",
+        "@rapidjson//:rapidjson",
+        "@robin-hood-hashing//:robin-hood-hashing",
+        # install deps 原本需要通过install 安装的也能走这依赖 sqlite3.h 是build生成的
+        # 所以不适合在这引用，或者有办法直接引用系统内安装的
+        "@sqlite3//:sqlite3",
+
+    ]
+)
+
 cc_library(
     name = "baldr",
     hdrs = glob(["valhalla/baldr/*.h"]),
