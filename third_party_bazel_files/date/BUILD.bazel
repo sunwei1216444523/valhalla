@@ -7,5 +7,11 @@ cc_library(
     name = "date",
     srcs = DATE_SRCS,
     hdrs = DATE_HEADERS,
+    # includes = [
+    #     "date/include",
+    #     "date/include/date",
+    #     "date",
+    # ],
+    include_prefix = "date",
     visibility = ["//visibility:public"],
 )

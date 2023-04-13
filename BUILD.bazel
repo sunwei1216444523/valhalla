@@ -1,7 +1,43 @@
 cc_library(
+    name = "sub_baldr_for_odin",
+    hdrs = [
+            "valhalla/baldr/streetname.h",
+            "valhalla/baldr/streetnames.h",
+            "valhalla/baldr/verbal_text_formatter.h",
+            "valhalla/baldr/turn.h",
+            "valhlla/baldr/verbal_text_formatter_us.h",
+            "valhalla/baldr/rapidjson_utils.h",
+            ],
+    srcs = [
+            "src/baldr/streetname.cc",
+            "src/baldr/streetnames.cc",
+            "src/baldr/verbal_text_formatter.cc",
+            "src/baldr/turn.cc",
+            "src/baldr/verbal_text_formatter_us.cc",
+            ],
+    deps = [
+        "//proto:common_cc_proto",
+    ]
+)
+
+cc_library(
     name = "baldr",
-    hdrs = glob(["valhalla/baldr/*.h"]),
-    srcs = glob(["src/baldr/*.cc", "src/baldr/*.h",]),
+    hdrs = glob(["valhalla/baldr/*.h"],
+                exclude = [
+                    "valhalla/baldr/streetname.h",
+                    "valhalla/baldr/streetnames.h",
+                    "valhalla/baldr/verbal_text_formatter.h",
+                    "valhalla/baldr/turn.h",
+                    "valhlla/baldr/verbal_text_formatter_us.h",
+                    "valhalla/baldr/rapidjson_utils.h",
+                ]),
+    srcs = glob(["src/baldr/*.cc", "src/baldr/*.h",],
+                exclude = [
+                    "src/baldr/streetname.cc",
+                    "src/baldr/streetnames.cc",
+                    "src/baldr/verbal_text_formatter.cc",
+                    "src/baldr/turn.cc",
+                    "src/baldr/verbal_text_formatter_us.cc",]),
     deps = [
         ":midgard",
         "//proto:options_cc_proto",

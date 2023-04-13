@@ -16,7 +16,7 @@
 // https://github.com/valhalla/valhalla/pull/3878#issuecomment-1365487437
 #define HAS_UNCAUGHT_EXCEPTIONS 1
 
-#include "date/date.h"
+#include "include/date/date.h"
 #include "date/tz.h"
 
 #include "valhalla/baldr/graphconstants.h"
