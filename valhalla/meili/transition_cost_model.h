@@ -3,13 +3,13 @@
 
 #include <functional>
 
-#include <valhalla/baldr/graphreader.h>
-#include <valhalla/meili/config.h>
-#include <valhalla/meili/measurement.h>
-#include <valhalla/meili/state.h>
-#include <valhalla/meili/topk_search.h>
-#include <valhalla/meili/viterbi_search.h>
-#include <valhalla/sif/dynamiccost.h>
+#include "valhalla/baldr/graphreader.h"
+#include "valhalla/meili/config.h"
+#include "valhalla/meili/measurement.h"
+#include "valhalla/meili/state.h"
+#include "valhalla/meili/topk_search.h"
+#include "valhalla/meili/viterbi_search.h"
+#include "valhalla/sif/dynamiccost.h"
 
 namespace valhalla {
 namespace meili {

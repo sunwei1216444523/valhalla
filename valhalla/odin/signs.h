@@ -4,11 +4,11 @@
 #include <cstdint>
 #include <vector>
 
-#include <valhalla/baldr/verbal_text_formatter.h>
-#include <valhalla/baldr/verbal_text_formatter_us.h>
+#include "valhalla/baldr/verbal_text_formatter.h"
+#include "valhalla/baldr/verbal_text_formatter_us.h"
 
-#include <valhalla/odin/markup_formatter.h>
-#include <valhalla/odin/sign.h>
+#include "valhalla/odin/markup_formatter.h"
+#include "valhalla/odin/sign.h"
 
 using namespace valhalla::baldr;
 

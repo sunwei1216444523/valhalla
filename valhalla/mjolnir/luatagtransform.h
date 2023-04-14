@@ -7,7 +7,7 @@ extern "C" {
 #include <lualib.h>
 }
 
-#include <valhalla/mjolnir/osmdata.h>
+#include "valhalla/mjolnir/osmdata.h"
 
 #include <string>
 #include <unordered_map>

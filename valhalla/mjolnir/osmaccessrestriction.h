@@ -2,8 +2,8 @@
 #define VALHALLA_MJOLNIR_OSMACCESSRESTRICTION_H
 
 #include <cstdint>
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphid.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphid.h"
 
 namespace valhalla {
 namespace mjolnir {

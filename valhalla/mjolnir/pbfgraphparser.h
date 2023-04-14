@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/mjolnir/osmdata.h>
+#include "valhalla/mjolnir/osmdata.h"
 
 namespace valhalla {
 namespace mjolnir {

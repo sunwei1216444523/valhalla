@@ -2,11 +2,11 @@
 #define VALHALLA_LOKI_SEARCH_H_
 
 #include <cstdint>
-#include <valhalla/baldr/directededge.h>
-#include <valhalla/baldr/graphreader.h>
-#include <valhalla/baldr/location.h>
-#include <valhalla/baldr/pathlocation.h>
-#include <valhalla/sif/dynamiccost.h>
+#include "valhalla/baldr/directededge.h"
+#include "valhalla/baldr/graphreader.h"
+#include "valhalla/baldr/location.h"
+#include "valhalla/baldr/pathlocation.h"
+#include "valhalla/sif/dynamiccost.h"
 
 #include <functional>
 

@@ -2,8 +2,8 @@
 #define VALHALLA_THOR_PATHINFO_H_
 
 #include <unordered_map>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/sif/costconstants.h>
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/sif/costconstants.h"
 
 namespace valhalla {
 namespace thor {

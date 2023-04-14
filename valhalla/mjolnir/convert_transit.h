@@ -3,7 +3,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <unordered_set>
 
-#include <valhalla/baldr/graphid.h>
+#include "valhalla/baldr/graphid.h"
 
 namespace valhalla {
 namespace mjolnir {

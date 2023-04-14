@@ -6,9 +6,9 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/mjolnir/dataquality.h>
-#include <valhalla/mjolnir/node_expander.h>
-#include <valhalla/mjolnir/osmdata.h>
+#include "valhalla/mjolnir/dataquality.h"
+#include "valhalla/mjolnir/node_expander.h"
+#include "valhalla/mjolnir/osmdata.h"
 
 namespace valhalla {
 namespace mjolnir {

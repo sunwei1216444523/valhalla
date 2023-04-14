@@ -6,8 +6,8 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/midgard/pointll.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/midgard/pointll.h"
 
 namespace valhalla {
 namespace mjolnir {

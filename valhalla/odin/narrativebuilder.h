@@ -4,15 +4,15 @@
 #include <cstdint>
 #include <vector>
 
-#include <valhalla/baldr/verbal_text_formatter.h>
+#include "valhalla/baldr/verbal_text_formatter.h"
 
-#include <valhalla/odin/enhancedtrippath.h>
-#include <valhalla/odin/maneuver.h>
-#include <valhalla/odin/markup_formatter.h>
-#include <valhalla/odin/narrative_dictionary.h>
-#include <valhalla/odin/util.h>
-#include <valhalla/proto/options.pb.h>
-#include <valhalla/proto/trip.pb.h>
+#include "valhalla/odin/enhancedtrippath.h"
+#include "valhalla/odin/maneuver.h"
+#include "valhalla/odin/markup_formatter.h"
+#include "valhalla/odin/narrative_dictionary.h"
+#include "valhalla/odin/util.h"
+#include "valhalla/proto/options.pb.h"
+#include "valhalla/proto/trip.pb.h"
 
 namespace valhalla {
 namespace odin {

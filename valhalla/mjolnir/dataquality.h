@@ -6,9 +6,9 @@
 #include <map>
 #include <unordered_set>
 
-#include <valhalla/baldr/directededge.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/midgard/logging.h>
+#include "valhalla/baldr/directededge.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/midgard/logging.h"
 
 namespace valhalla {
 namespace mjolnir {

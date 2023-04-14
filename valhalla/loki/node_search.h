@@ -2,7 +2,7 @@
 #define VALHALLA_LOKI_NODE_SEARCH_H_
 
 #include <cstdint>
-#include <valhalla/baldr/graphreader.h>
+#include "valhalla/baldr/graphreader.h"
 
 namespace valhalla {
 namespace loki {

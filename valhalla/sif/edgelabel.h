@@ -4,10 +4,10 @@
 #include <cstdint>
 #include <limits>
 #include <string.h>
-#include <valhalla/baldr/directededge.h>
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/sif/costconstants.h>
+#include "valhalla/baldr/directededge.h"
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/sif/costconstants.h"
 
 namespace valhalla {
 namespace sif {

@@ -12,10 +12,10 @@
 // needs to be after sqlite include
 #include <spatialite.h>
 
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/baldr/rapidjson_utils.h>
-#include <valhalla/midgard/logging.h>
-#include <valhalla/midgard/pointll.h>
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/baldr/rapidjson_utils.h"
+#include "valhalla/midgard/logging.h"
+#include "valhalla/midgard/pointll.h"
 
 namespace valhalla {
 namespace mjolnir {

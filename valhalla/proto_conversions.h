@@ -1,9 +1,9 @@
 #pragma once
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/midgard/pointll.h>
-#include <valhalla/proto/api.pb.h>
-#include <valhalla/proto/incidents.pb.h>
-#include <valhalla/sif/costconstants.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/midgard/pointll.h"
+#include "valhalla/proto/api.pb.h"
+#include "valhalla/proto/incidents.pb.h"
+#include "valhalla/sif/costconstants.h"
 
 namespace valhalla {
 // Associate RoadClass values to TripLeg proto

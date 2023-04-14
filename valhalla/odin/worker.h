@@ -1,9 +1,9 @@
 #ifndef __VALHALLA_ODIN_SERVICE_H__
 #define __VALHALLA_ODIN_SERVICE_H__
 
-#include <valhalla/odin/markup_formatter.h>
-#include <valhalla/proto/api.pb.h>
-#include <valhalla/worker.h>
+#include "valhalla/odin/markup_formatter.h"
+#include "valhalla/proto/api.pb.h"
+#include "valhalla/worker.h"
 
 namespace valhalla {
 namespace odin {

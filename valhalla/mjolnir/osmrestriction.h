@@ -2,9 +2,9 @@
 #define VALHALLA_MJOLNIR_OSMRESTRICTION_H
 
 #include <cstdint>
-#include <valhalla/baldr/complexrestriction.h>
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphid.h>
+#include "valhalla/baldr/complexrestriction.h"
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphid.h"
 
 #include <vector>
 

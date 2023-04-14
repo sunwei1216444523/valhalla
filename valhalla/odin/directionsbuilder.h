@@ -3,10 +3,10 @@
 
 #include <list>
 
-#include <valhalla/odin/enhancedtrippath.h>
-#include <valhalla/odin/maneuver.h>
-#include <valhalla/odin/markup_formatter.h>
-#include <valhalla/proto/api.pb.h>
+#include "valhalla/odin/enhancedtrippath.h"
+#include "valhalla/odin/maneuver.h"
+#include "valhalla/odin/markup_formatter.h"
+#include "valhalla/proto/api.pb.h"
 
 namespace valhalla {
 namespace odin {

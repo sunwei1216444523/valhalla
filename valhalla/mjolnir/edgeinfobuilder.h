@@ -7,10 +7,10 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/edgeinfo.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/midgard/pointll.h>
-#include <valhalla/midgard/util.h>
+#include "valhalla/baldr/edgeinfo.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/midgard/pointll.h"
+#include "valhalla/midgard/util.h"
 
 using namespace valhalla::midgard;
 using namespace valhalla::baldr;

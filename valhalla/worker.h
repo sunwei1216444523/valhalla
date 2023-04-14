@@ -2,11 +2,11 @@
 #define __VALHALLA_SERVICE_H__
 #include <string>
 
-#include <valhalla/baldr/json.h>
-#include <valhalla/baldr/rapidjson_utils.h>
-#include <valhalla/midgard/util.h>
-#include <valhalla/proto/api.pb.h>
-#include <valhalla/valhalla.h>
+#include "valhalla/baldr/json.h"
+#include "valhalla/baldr/rapidjson_utils.h"
+#include "valhalla/midgard/util.h"
+#include "valhalla/proto/api.pb.h"
+#include "valhalla/valhalla.h"
 
 #ifdef HAVE_HTTP
 #include <prime_server/http_protocol.hpp>

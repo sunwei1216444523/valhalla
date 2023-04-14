@@ -8,11 +8,11 @@
 #include <unordered_set>
 #include <vector>
 
-#include <valhalla/mjolnir/osmaccessrestriction.h>
-#include <valhalla/mjolnir/osmnode.h>
-#include <valhalla/mjolnir/osmrestriction.h>
-#include <valhalla/mjolnir/osmway.h>
-#include <valhalla/mjolnir/uniquenames.h>
+#include "valhalla/mjolnir/osmaccessrestriction.h"
+#include "valhalla/mjolnir/osmnode.h"
+#include "valhalla/mjolnir/osmrestriction.h"
+#include "valhalla/mjolnir/osmway.h"
+#include "valhalla/mjolnir/uniquenames.h"
 
 namespace valhalla {
 namespace mjolnir {

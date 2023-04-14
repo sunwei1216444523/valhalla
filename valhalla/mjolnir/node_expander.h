@@ -5,11 +5,11 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/midgard/sequence.h>
-#include <valhalla/mjolnir/osmnode.h>
-#include <valhalla/mjolnir/osmway.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/midgard/sequence.h"
+#include "valhalla/mjolnir/osmnode.h"
+#include "valhalla/mjolnir/osmway.h"
 
 using namespace valhalla::midgard;
 

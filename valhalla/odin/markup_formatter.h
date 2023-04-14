@@ -5,8 +5,8 @@
 
 #include <boost/property_tree/ptree.hpp>
 
-#include <valhalla/baldr/streetname.h>
-#include <valhalla/odin/sign.h>
+#include "valhalla/baldr/streetname.h"
+#include "valhalla/odin/sign.h"
 
 namespace valhalla {
 namespace odin {

@@ -7,15 +7,15 @@
 #include <string>
 #include <unordered_map>
 
-#include <valhalla/baldr/streetnames.h>
-#include <valhalla/baldr/verbal_text_formatter.h>
+#include "valhalla/baldr/streetnames.h"
+#include "valhalla/baldr/verbal_text_formatter.h"
 
-#include <valhalla/odin/signs.h>
-#include <valhalla/odin/transitrouteinfo.h>
-#include <valhalla/proto/common.pb.h>
-#include <valhalla/proto/directions.pb.h>
-#include <valhalla/proto/options.pb.h>
-#include <valhalla/proto/trip.pb.h>
+#include "valhalla/odin/signs.h"
+#include "valhalla/odin/transitrouteinfo.h"
+#include "valhalla/proto/common.pb.h"
+#include "valhalla/proto/directions.pb.h"
+#include "valhalla/proto/options.pb.h"
+#include "valhalla/proto/trip.pb.h"
 
 using namespace valhalla::baldr;
 

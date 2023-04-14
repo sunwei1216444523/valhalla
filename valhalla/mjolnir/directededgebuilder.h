@@ -2,10 +2,10 @@
 #define VALHALLA_MJOLNIR_DIRECTEDEDGEBUILDER_H_
 
 #include <cstdint>
-#include <valhalla/baldr/directededge.h>
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/mjolnir/osmway.h>
+#include "valhalla/baldr/directededge.h"
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/mjolnir/osmway.h"
 
 using namespace valhalla::baldr;
 

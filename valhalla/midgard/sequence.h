@@ -21,7 +21,7 @@
 #include <utility>
 #include <vector>
 
-#include <valhalla/filesystem.h>
+#include "valhalla/filesystem.h"
 
 #ifdef _WIN32
 #include <io.h>

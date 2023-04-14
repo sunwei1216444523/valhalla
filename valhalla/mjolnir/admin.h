@@ -10,10 +10,10 @@
 #include <cstdint>
 #include <sqlite3.h>
 #include <unordered_map>
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/midgard/aabb2.h>
-#include <valhalla/midgard/pointll.h>
-#include <valhalla/mjolnir/graphtilebuilder.h>
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/midgard/aabb2.h"
+#include "valhalla/midgard/pointll.h"
+#include "valhalla/mjolnir/graphtilebuilder.h"
 
 using namespace valhalla::baldr;
 using namespace valhalla::midgard;

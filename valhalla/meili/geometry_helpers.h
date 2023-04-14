@@ -4,12 +4,12 @@
 
 #include <vector>
 
-#include <valhalla/midgard/aabb2.h>
-#include <valhalla/midgard/constants.h>
-#include <valhalla/midgard/distanceapproximator.h>
-#include <valhalla/midgard/encoded.h>
-#include <valhalla/midgard/pointll.h>
-#include <valhalla/midgard/util.h>
+#include "valhalla/midgard/aabb2.h"
+#include "valhalla/midgard/constants.h"
+#include "valhalla/midgard/distanceapproximator.h"
+#include "valhalla/midgard/encoded.h"
+#include "valhalla/midgard/pointll.h"
+#include "valhalla/midgard/util.h"
 
 namespace valhalla {
 namespace meili {

@@ -8,11 +8,11 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/baldr/graphreader.h>
-#include <valhalla/baldr/json.h>
-#include <valhalla/meili/map_matcher.h>
-#include <valhalla/meili/map_matcher_factory.h>
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/baldr/graphreader.h"
+#include "valhalla/baldr/json.h"
+#include "valhalla/meili/map_matcher.h"
+#include "valhalla/meili/map_matcher_factory.h"
 
 namespace valhalla {
 namespace meili {

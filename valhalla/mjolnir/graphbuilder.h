@@ -6,11 +6,11 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/signinfo.h>
+#include "valhalla/baldr/signinfo.h"
 
-#include <valhalla/mjolnir/osmdata.h>
-#include <valhalla/mjolnir/osmnode.h>
-#include <valhalla/mjolnir/osmway.h>
+#include "valhalla/mjolnir/osmdata.h"
+#include "valhalla/mjolnir/osmnode.h"
+#include "valhalla/mjolnir/osmway.h"
 
 namespace valhalla {
 namespace mjolnir {

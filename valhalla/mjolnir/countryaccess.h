@@ -2,10 +2,10 @@
 #define VALHALLA_MJOLNIR_COUNTRY_ACCESS_H_
 
 #include <cstdint>
-#include <valhalla/baldr/directededge.h>
-#include <valhalla/baldr/graphconstants.h>
-#include <valhalla/mjolnir/adminconstants.h>
-#include <valhalla/mjolnir/osmaccess.h>
+#include "valhalla/baldr/directededge.h"
+#include "valhalla/baldr/graphconstants.h"
+#include "valhalla/mjolnir/adminconstants.h"
+#include "valhalla/mjolnir/osmaccess.h"
 
 using namespace valhalla::baldr;
 

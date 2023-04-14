@@ -8,18 +8,18 @@
 
 #include <boost/property_tree/ptree.hpp>
 
-#include <valhalla/baldr/directededge.h>
-#include <valhalla/baldr/edgeinfo.h>
-#include <valhalla/baldr/graphreader.h>
-#include <valhalla/baldr/location.h>
-#include <valhalla/baldr/pathlocation.h>
-#include <valhalla/midgard/distanceapproximator.h>
-#include <valhalla/midgard/linesegment2.h>
-#include <valhalla/midgard/pointll.h>
-#include <valhalla/midgard/tiles.h>
-#include <valhalla/sif/dynamiccost.h>
+#include "valhalla/baldr/directededge.h"
+#include "valhalla/baldr/edgeinfo.h"
+#include "valhalla/baldr/graphreader.h"
+#include "valhalla/baldr/location.h"
+#include "valhalla/baldr/pathlocation.h"
+#include "valhalla/midgard/distanceapproximator.h"
+#include "valhalla/midgard/linesegment2.h"
+#include "valhalla/midgard/pointll.h"
+#include "valhalla/midgard/tiles.h"
+#include "valhalla/sif/dynamiccost.h"
 
-#include <valhalla/meili/grid_range_query.h>
+#include "valhalla/meili/grid_range_query.h"
 
 namespace valhalla {
 namespace meili {

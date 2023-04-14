@@ -4,10 +4,10 @@
 #include <memory>
 #include <string>
 
-#include <valhalla/odin/enhancedtrippath.h>
-#include <valhalla/odin/markup_formatter.h>
-#include <valhalla/odin/narrativebuilder.h>
-#include <valhalla/proto/options.pb.h>
+#include "valhalla/odin/enhancedtrippath.h"
+#include "valhalla/odin/markup_formatter.h"
+#include "valhalla/odin/narrativebuilder.h"
+#include "valhalla/proto/options.pb.h"
 
 namespace valhalla {
 namespace odin {

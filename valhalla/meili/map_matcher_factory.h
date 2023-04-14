@@ -7,13 +7,13 @@
 
 #include <boost/property_tree/ptree.hpp>
 
-#include <valhalla/baldr/graphreader.h>
-#include <valhalla/sif/costconstants.h>
-#include <valhalla/sif/costfactory.h>
+#include "valhalla/baldr/graphreader.h"
+#include "valhalla/sif/costconstants.h"
+#include "valhalla/sif/costfactory.h"
 
-#include <valhalla/meili/candidate_search.h>
-#include <valhalla/meili/config.h>
-#include <valhalla/meili/map_matcher.h>
+#include "valhalla/meili/candidate_search.h"
+#include "valhalla/meili/config.h"
+#include "valhalla/meili/map_matcher.h"
 
 namespace valhalla {
 namespace meili {

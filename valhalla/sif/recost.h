@@ -1,8 +1,8 @@
 #pragma once
-#include <valhalla/baldr/graphreader.h>
-#include <valhalla/baldr/time_info.h>
-#include <valhalla/sif/dynamiccost.h>
-#include <valhalla/sif/edgelabel.h>
+#include "valhalla/baldr/graphreader.h"
+#include "valhalla/baldr/time_info.h"
+#include "valhalla/sif/dynamiccost.h"
+#include "valhalla/sif/edgelabel.h"
 
 #include <functional>
 

@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/midgard/pointll.h>
-#include <valhalla/mjolnir/uniquenames.h>
+#include "valhalla/midgard/pointll.h"
+#include "valhalla/mjolnir/uniquenames.h"
 
 namespace valhalla {
 namespace mjolnir {

@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
-#include <valhalla/baldr/complexrestriction.h>
-#include <valhalla/baldr/graphconstants.h>
+#include "valhalla/baldr/complexrestriction.h"
+#include "valhalla/baldr/graphconstants.h"
 
 using namespace valhalla::midgard;
 using namespace valhalla::baldr;

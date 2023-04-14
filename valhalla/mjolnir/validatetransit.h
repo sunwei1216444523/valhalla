@@ -5,9 +5,9 @@
 #include <cstdint>
 #include <unordered_set>
 
-#include <valhalla/baldr/datetime.h>
-#include <valhalla/baldr/graphid.h>
-#include <valhalla/mjolnir/util.h>
+#include "valhalla/baldr/datetime.h"
+#include "valhalla/baldr/graphid.h"
+#include "valhalla/mjolnir/util.h"
 
 namespace valhalla {
 namespace mjolnir {
