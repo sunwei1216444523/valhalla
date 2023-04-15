@@ -1,5 +1,6 @@
 cc_library(
     name = "microtar",
-    hdrs = ["microtar.h"],
-    srcs = ["microtar.c"],
+    hdrs = ["src/microtar.h"],
+    srcs = ["src/microtar.c"],
+    visibility = ["//visibility:public"],
 )

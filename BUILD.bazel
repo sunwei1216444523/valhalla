@@ -52,10 +52,10 @@ cc_library(
         "//proto:api_cc_proto",
         "//proto:common_cc_proto",
         "//proto:directions_cc_proto",
-        "//proto:incident_cc_proto",
+        "//proto:incidents_cc_proto",
         "//proto:info_cc_proto",
         "//proto:options_cc_proto",
-        "//proto:signal_cc_proto",
+        "//proto:sign_cc_proto",
         "//proto:status_cc_proto",
         "//proto:transit_cc_proto",
         "//proto:transit_fetch_cc_proto",
@@ -84,7 +84,8 @@ cc_library(
         "@robin-hood-hashing//:robin-hood-hashing",
         # install deps 原本需要通过install 安装的也能走这依赖 sqlite3.h 是build生成的
         # 所以不适合在这引用，或者有办法直接引用系统内安装的
-        "@sqlite3//:sqlite3",
+        # [备注]系统假若安装了，bazel会自动去搜索，不需要手动添加
+        # "@sqlite3//:sqlite3",
 
     ]
 )
