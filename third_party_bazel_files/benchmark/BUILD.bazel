@@ -1,6 +1,0 @@
-cc_library(
-    name = "benchmark",
-    hdrs = glob(["include/benchmark/*.h"]),
-    srcs = glob(["src/*.cc"]),
-    includes = ["include"],
-)

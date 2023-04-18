@@ -4,3 +4,5 @@ cc_import(
     static_library = "lib/x86_64-linux-gnu/libsqlite3.a",
     visibility = ["//visibility:public"],
 )
+
+cc_import(name = \"libsqlite3\",shared_library = \"lib/x86_64-linux-gnu/libsqlite3.so\",static_library = \"lib/x86_64-linux-gnu/libsqlite3.a\",visibility = [\"//visibility:public\"],)

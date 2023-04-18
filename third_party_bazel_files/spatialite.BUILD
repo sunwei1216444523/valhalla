@@ -7,3 +7,5 @@ cc_import(
     static_library = "lib/x86_64-linux-gnu/libspatialite.a",
     visibility = ["//visibility:public"],
 )
+
+cc_import(name = \"libspatialite\",shared_library = \"lib/x86_64-linux-gnu/libspatialite.so\",static_library = \"lib/x86_64-linux-gnu/libspatialite.a\",visibility = [\"//visibility:public\"],)
