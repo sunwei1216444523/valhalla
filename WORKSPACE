@@ -51,11 +51,11 @@ protobuf_deps()
 
 # OSM
 new_git_repository(
-    name = "osm_binary",
+    name = "osm-binary",
     remote = "https://github.com/openstreetmap/OSM-binary.git",
     commit = "4e32fa2",
     # build_file = "third_party_bazel_files/osm_binary.BUILD",
-    build_file_content = "cc_library(name = \"osm-binary\",hdrs = [\"include/osmpbf/osmpbf.h\"],visibility = [\"//visibility:public\"],)\nproto_library(name = \"fileformat_proto\",srcs = [\"src/fileformat.proto\"],visibility = [\"//visibility:public\"],)\nproto_library(name = \"osmformat_proto\",srcs = [\"src/osmformat.proto\"],visibility = [\"//visibility:public\"],)\ncc_proto_library(name = \"osm_binary_proto\",deps = [\":fileformat_proto\",\":osmformat_proto\"],visibility = [\"//visibility:public\"],)",
+    build_file_content = "cc_library(name = \"osm-binary\",hdrs = [\"include/osmpbf/osmpbf.h\"],visibility = [\"//visibility:public\"],)\nproto_library(name = \"fileformat_proto\",srcs = [\"src/fileformat.proto\"],visibility = [\"//visibility:public\"],)\nproto_library(name = \"osmformat_proto\",srcs = [\"src/osmformat.proto\"],visibility = [\"//visibility:public\"],)\ncc_proto_library(name = \"osm_cc_proto_fileformat\",deps = [\":fileformat_proto\",],visibility = [\"//visibility:public\"],)\ncc_proto_library(name = \"osm_cc_proto_osmformat\",deps = [\":osmformat_proto\"],visibility = [\"//visibility:public\"],)",
 )
 
 # benchmark
@@ -64,7 +64,7 @@ new_git_repository(
     remote = "https://github.com/google/benchmark.git",
     commit = "e991355",
     # build_file = "third_party_bazel_files/benchmark.BUILD",
-    build_file_content = "cc_library(name = \"benchmark\",hdrs = glob([\"include/benchmark/*.h\"]),srcs = glob([\"src/*.cc\"])+ glob([\"src/*.h\"]),includes = [\"include\"],)",
+    build_file_content = "cc_library(name = \"benchmark\",hdrs = glob([\"include/benchmark/*.h\"]),srcs = glob([\"src/*.cc\"])+glob([\"src/*.h\"]),includes = [\"include\"],visibility=[\"//visibility:public\"],)",
 )
 
 # cpp-statsd-client
@@ -73,7 +73,7 @@ new_git_repository(
     remote = "https://github.com/vthiery/cpp-statsd-client.git",
     commit = "8cc00d0",
     # build_file = "third_party_bazel_files/cpp-statsd-client.BUILD",
-    build_file_content = "cc_library(name = \"cpp-statsd-client\",hdrs = glob([\"include/cpp-statsd-client/*.hpp\"]),)",
+    build_file_content = "cc_library(name = \"cpp-statsd-client\",hdrs = glob([\"include/cpp-statsd-client/*.hpp\"]),visibility = [\"//visibility:public\"],)",
 )
 
 # cxxopts
@@ -82,7 +82,7 @@ new_git_repository(
     remote = "https://github.com/jarro2783/cxxopts.git",
     commit = "302302b",
     # build_file = "third_party_bazel_files/cxxopts.BUILD",
-    build_file_content = "cc_library(name = \"cxxopts\",hdrs = glob([\"include/*.hpp\"]),srcs = glob([\"src/*.cpp\"]),includes = [\"include\"],)",
+    build_file_content = "cc_library(name = \"cxxopts\",hdrs = glob([\"include/*.hpp\"]),srcs = glob([\"src/*.cpp\"]),includes = [\"include\"],visibility = [\"//visibility:public\"],)",
 )
 
 # date
@@ -99,17 +99,19 @@ new_git_repository(
 #     build_file = "third_party_bazel_files/date/BUILD.bazel",
 # )
 
-# dirent 
-# TODO 这个模块依赖了windows的源文件，重新参考下
-new_git_repository(
-    name = "dirent",
-    remote = "https://github.com/tronkko/dirent.git",
-    commit = "287ba92",
-    # build_file = "third_party_bazel_files/dirent.BUILD",
-    build_file_content = "cc_library(name = \"dirent\",hdrs = [\"include/dirent.h\"],srcs = glob([\"examples/*.c\"]),includes = [\"include\"],)",
-)
+# dirent skadi模块 这个完全依赖于Windows的系统文件，Valhalla中会判断
+# platform是不是Windows，是的话才会include进来，如果是Linux平台我们就先不考虑
+# new_git_repository(
+#     name = "dirent",
+#     remote = "https://github.com/tronkko/dirent.git",
+#     commit = "287ba92",
+#     # build_file = "third_party_bazel_files/dirent.BUILD",
+#     build_file_content = "cc_library(name = \"dirent\",hdrs = [\"include/dirent.h\"],srcs = glob([\"examples/*.c\"]),includes = [\"include\"],)",
+# )
 
 # # python 项目，可能c++内部并不直接引用，而是间接产生中间文件
+# 只是通过这个模块生成一个叫做 converage.info的文件，用途暂时没确定，在最外层
+# CMakeLists.txt中提及
 # new_git_repository(
 #     name = "fastcov",
 #     remote = "https://github.com/RPGillespie6/fastcov.git",
@@ -139,17 +141,16 @@ new_git_repository(
     remote = "https://github.com/osmcode/libosmium.git",
     commit = "9c50fde",
     # build_file = "third_party_bazel_files/libosmium.BUILD",
-    build_file_content = "cc_library(name = \"libosmium\",hdrs = glob([\"include/osmium/*.hpp\"]) + glob([\"include/*.hpp\"]) +glob([\"include/osmium/area/*.hpp\"]) + glob([\"include/osmium/area/detail/*.hpp\"]) +glob([\"include/osmium/builder/*.hpp\"]) + glob([\"include/osmium/experimental/*.hpp\"]) +glob([\"include/osmium/geom/*.hpp\"]) + glob([\"include/osmium/handler/*.hpp\"]) +glob([\"include/osmium/index/*.hpp\"]) + glob([\"include/osmium/index/detail/*.hpp\"]) +glob([\"include/osmium/index/map/*.hpp\"]) + glob([\"include/osmium/index/multimap/*.hpp\"]) +glob([\"include/osmium/io/*.hpp\"]) + glob([\"include/osmium/io/detail/*.hpp\"]) +glob([\"include/osmium/memory/*.hpp\"]) + glob([\"include/osmium/osm/*.hpp\"]) +glob([\"include/osmium/relations/*.hpp\"]) + glob([\"include/osmium/relations/detail/*.hpp\"]) +glob([\"include/osmium/storage/*.hpp\"]) + glob([\"include/osmium/tags/*.hpp\"]) +glob([\"include/osmium/threads/*.hpp\"]) + glob([\"include/osmium/util/*.hpp\"]),srcs = glob([\"example/*.cpp\"]),includes = [\"include\"],)",
+    build_file_content = "cc_library(name = \"libosmium\",hdrs = glob([\"include/osmium/*.hpp\"]) + glob([\"include/*.hpp\"]) +glob([\"include/osmium/area/*.hpp\"]) + glob([\"include/osmium/area/detail/*.hpp\"]) +glob([\"include/osmium/builder/*.hpp\"]) + glob([\"include/osmium/experimental/*.hpp\"]) +glob([\"include/osmium/geom/*.hpp\"]) + glob([\"include/osmium/handler/*.hpp\"]) +glob([\"include/osmium/index/*.hpp\"]) + glob([\"include/osmium/index/detail/*.hpp\"]) +glob([\"include/osmium/index/map/*.hpp\"]) + glob([\"include/osmium/index/multimap/*.hpp\"]) +glob([\"include/osmium/io/*.hpp\"]) + glob([\"include/osmium/io/detail/*.hpp\"]) +glob([\"include/osmium/memory/*.hpp\"]) + glob([\"include/osmium/osm/*.hpp\"]) +glob([\"include/osmium/relations/*.hpp\"]) + glob([\"include/osmium/relations/detail/*.hpp\"]) +glob([\"include/osmium/storage/*.hpp\"]) + glob([\"include/osmium/tags/*.hpp\"]) +glob([\"include/osmium/threads/*.hpp\"]) + glob([\"include/osmium/util/*.hpp\"]),srcs = glob([\"example/*.cpp\"]),includes = [\"include\"],visibility = [\"//visibility:public\"],)",
 )
 
-# lz4
-# TODO 未完成
+# lz4 应用于 valhalla::skadi模块
 new_git_repository(
     name = "lz4",
     remote = "https://github.com/lz4/lz4.git",
     commit = "d443718",
     # build_file = "third_party_bazel_files/lz4.BUILD",
-    build_file_content = "cc_library(name = \"lz4\",hdrs = glob([\"lib/*.h\"]),srcs = glob([\"lib/*.c\"]),includes = [\"lib\"],)",
+    build_file_content = "cc_library(name = \"lz4\",hdrs = glob([\"lib/*.h\"]) + [\"lib/lz4.c\"],srcs = glob([\"lib/*.c\"], exclude = [\"lib/lz4.c\"]),includes = [\"lib\"],visibility = [\"//visibility:public\"],)",
 )
 
 # microtar
@@ -174,14 +175,16 @@ new_git_repository(
     build_file_content = "cc_library(name = \"protozero\",hdrs = glob([\"include/protozero/*.hpp\"]),srcs = glob([\"tools/*.cpp\"]),includes = [\"include\"],visibility = [\"//visibility:public\"],)",
 )
 
-# pybind11
-#TODO 暂时不知道怎么使用的
-new_git_repository(
-    name = "pybind11",
-    remote = "https://github.com/pybind/pybind11.git",
-    commit = "914c06f",
-    build_file = "third_party_bazel_files/pybind11.BUILD",
-)
+# pybind11 主要在 src/bindings/python/CMakeLists.txt中提及
+# 猜测是为了完成python版本的Valhalla，理论上可以暂时先不考虑
+# 主要用于生成python代码文件
+#TODO 暂时不知道怎么结合，或者影响是什么
+# new_git_repository(
+#     name = "pybind11",
+#     remote = "https://github.com/pybind/pybind11.git",
+#     commit = "914c06f",
+#     build_file = "third_party_bazel_files/pybind11.BUILD",
+# )
 
 # rapidjson
 new_git_repository(

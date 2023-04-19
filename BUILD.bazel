@@ -61,7 +61,8 @@ cc_library(
         "//proto:transit_fetch_cc_proto",
         "//proto:trip_cc_proto",
         # 还得包括两个osm的proto
-        "@osm_binary//:osm_binary_proto",
+        "@osm-binary//:osm_cc_proto_fileformat",
+        "@osm-binary//:osm_cc_proto_osmformat",
 
         "@com_google_protobuf//:protobuf",
         "@boost//:filesystem",
@@ -72,14 +73,16 @@ cc_library(
         "@cpp-statsd-client//:cpp-statsd-client",
         "@cxxopts//:cxxopts",
         "@date//:date",
-        "@dirent//:dirent",
+        # windows专用，忽略
+        # "@dirent//:dirent",
         "@googletest//:gtest",
         "@just_gtfs//:just_gtfs",
         "@libosmium//:libosmium",
         "@lz4//:lz4",
         "@microtar//:microtar",
         "@protozero//:protozero",
-        "@pybind11//:pybind11",
+        # 构建python版本Valhalla用，暂时忽略
+        # "@pybind11//:pybind11",
         "@rapidjson//:rapidjson",
         "@robin-hood-hashing//:robin-hood-hashing",
         # install deps 原本需要通过install 安装的也能走这依赖 sqlite3.h 是build生成的
@@ -87,7 +90,21 @@ cc_library(
         # [备注]系统假若安装了，bazel会自动去搜索，不需要手动添加
         # "@sqlite3//:sqlite3",
 
-    ]
+    ],
+    includes = [
+        "valhalla/baldr",
+        "valhalla/loki",
+        "valhalla/meili",
+        "valhalla/midgard",
+        "valhalla/mjolnir",
+        "valhalla/odin",
+        "valhalla/sif",
+        "valhalla/skadi",
+        "valhalla/thor",
+        "valhalla/tyr",
+        "valhalla",
+        "valhalla/proto",
+    ],
 )
 
 cc_library(
