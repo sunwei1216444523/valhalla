@@ -32,7 +32,7 @@
 #include "mjolnir/ingest_transit.h"
 #include "mjolnir/servicedays.h"
 #include "mjolnir/util.h"
-#include "valhalla/proto/transit.pb.h"
+#include "proto/transit.pb.h"
 
 using namespace boost::property_tree;
 using namespace valhalla::midgard;

@@ -1,6 +1,7 @@
 cc_library(
     name = "robin-hood-hashing",
     hdrs = ["src/include/robin_hood.h"],
+    includes = ["src/include"],
     visibility = ["//visibility:public"],
 )
 

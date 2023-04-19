@@ -1,6 +1,6 @@
 /* Minimal valhalla/config.h template for minimal CMake build configuration */
 
-#include <valhalla/valhalla.h>
+#include "valhalla/valhalla.h"
 
 #define VALHALLA_STRINGIZE_NX(A) #A
 #define VALHALLA_STRINGIZE(A) VALHALLA_STRINGIZE_NX(A)

@@ -1,6 +1,6 @@
 # 组织所有代码在这
 # Baldr
-BALDR_HDRS = glob(["valhalla/baldr/*.h"])
+BALDR_HDRS = glob(["valhalla/baldr/*.h"]) + glob(["src/baldr/*.h"])
 BALDR_SRCS = glob(["src/baldr/*.cc"])
 
 # Loki
@@ -16,8 +16,23 @@ MIDGARD_HDRS = glob(["valhalla/midgard/*.h"])
 MIDGARD_SRCS = glob(["src/midgard/*.cc"])
 
 # Mjolnir
-MJOLNIR_HDRS = glob(["valhalla/mjolnir/*.h"])
-MJOLNIR_SRCS = glob(["src/mjolnir/*.cc"])
+MJOLNIR_HDRS = glob(["valhalla/mjolnir/*.h"]) + glob(["src/mjolnir/*.h"])
+MJOLNIR_SRCS = glob(["src/mjolnir/*.cc"], exclude = [
+    "src/mjolnir/valhalla_add_elevation.cc",
+    "src/mjolnir/valhalla_add_predicted_traffic.cc",
+    "src/mjolnir/valhalla_assign_speeds.cc",
+    "src/mjolnir/valhalla_benchmark_admin.cc",
+    "src/mjolnir/valhalla_build_admins.cc",
+    "src/mjolnir/valhalla_build_connectivity.cc",
+    "src/mjolnir/valhalla_build_statistics.cc",
+    "src/mjolnir/valhalla_build_tiles.cc",
+    "src/mjolnir/valhalla_convert_transit.cc",
+    "src/mjolnir/valhalla_fetch_transit.cc",
+    "src/mjolnir/valhalla_ingest_transit.cc",
+    "src/mjolnir/valhalla_query_transit.cc",
+    "src/mjolnir/valhalla_validate_transit.cc",
+    "src/mjolnir/valhalla_ways_to_edges.cc",
+])
 
 # Odin
 ODIN_HDRS = glob(["valhalla/odin/*.h"])
@@ -32,16 +47,30 @@ SKADI_HDRS = glob(["valhalla/skadi/*.h"])
 SKADI_SRCS = glob(["src/skadi/*.cc"])
 
 # thor
-THOR_HDRS = glob(["valhalla/thor/*.h"])
+THOR_HDRS = glob(["valhalla/thor/*.h"]) + glob(["src/thor/*.h"])
 THOR_SRCS = glob(["src/thor/*.cc"])
 
 # Tyr
-TYR_HDRS = glob(["valhalla/tyr/*.h"])
+TYR_HDRS = glob(["valhalla/tyr/*.h"]) + glob(["src/tyr/*.h"])
 TYR_SRCS = glob(["src/tyr/*.cc"])
 
 # Valhlla common
 COMMON_HDRS = glob(["valhalla/*.h"])
-COMMON_SRCS = glob(["src/*.cc"])
+COMMON_SRCS = glob(["src/*.cc"], exclude = [
+    "src/valhalla_benchmark_adjacency_list.cc",
+    "src/valhalla_benchmark_loki.cc",
+    "src/valhalla_benchmark_skadi.cc",
+    "src/valhalla_expand_bounding_box.cc",
+    "src/valhalla_export_edges.cc",
+    "src/valhalla_loki_worker.cc",
+    "src/valhalla_odin_worker.cc",
+    "src/valhalla_path_comparison.cc",
+    "src/valhalla_run_isochrone.cc",
+    "src/valhalla_run_maxtrix.cc",
+    "src/valhalla_run_route.cc",
+    "src/valhalla_service.cc",
+    "src/valhalla_thor_worker.cc",
+])
 
 
 cc_library(
@@ -65,9 +94,9 @@ cc_library(
         "@osm-binary//:osm_cc_proto_osmformat",
 
         "@com_google_protobuf//:protobuf",
-        "@boost//:filesystem",
-        "@boost//:system",
-        "@boost//:algorithm",
+        "@boost//:libboost_filesystem",
+        "@boost//:libboost_system",
+        # "@boost//:algorithm",
         # third_party
         "@benchmark//:benchmark",
         "@cpp-statsd-client//:cpp-statsd-client",
@@ -89,6 +118,7 @@ cc_library(
         # 所以不适合在这引用，或者有办法直接引用系统内安装的
         # [备注]系统假若安装了，bazel会自动去搜索，不需要手动添加
         # "@sqlite3//:sqlite3",
+        "@lua//:liblua",
 
     ],
     includes = [
@@ -104,6 +134,9 @@ cc_library(
         "valhalla/tyr",
         "valhalla",
         "valhalla/proto",
+    ],
+    copts = [
+        "-std=c++17",
     ],
 )
 

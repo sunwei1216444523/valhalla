@@ -3,7 +3,7 @@
 #include <boost/geometry/geometries/register/point.hpp>
 #include <boost/geometry/multi/geometries/register/multi_polygon.hpp>
 #include <gtest/gtest.h>
-#include <valhalla/proto/options.pb.h>
+#include "proto/options.pb.h"
 
 #include "baldr/graphconstants.h"
 #include "baldr/graphreader.h"

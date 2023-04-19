@@ -4,17 +4,17 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 # Famous C++ library that has given rise to many new additions to the C++ Standard Library
 # Makes @boost available for use: For example, add `@boost//:algorithm` to your deps.
 # For more, see https://github.com/nelhage/rules_boost and https://www.boost.org
-http_archive(
-    name = "com_github_nelhage_rules_boost",
+# http_archive(
+#     name = "com_github_nelhage_rules_boost",
 
-    # Replace the commit hash in both places (below) with the latest, rather than using the stale one here.
-    # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
-    url = "https://github.com/nelhage/rules_boost/archive/96e9b631f104b43a53c21c87b01ac538ad6f3b48.tar.gz",
-    strip_prefix = "rules_boost-96e9b631f104b43a53c21c87b01ac538ad6f3b48",
-    # When you first run this tool, it'll recommend a sha256 hash to put here with a message like: "DEBUG: Rule 'com_github_nelhage_rules_boost' indicated that a canonical reproducible form can be obtained by modifying arguments sha256 = ..."
-)
-load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
-boost_deps()
+#     # Replace the commit hash in both places (below) with the latest, rather than using the stale one here.
+#     # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
+#     url = "https://github.com/nelhage/rules_boost/archive/96e9b631f104b43a53c21c87b01ac538ad6f3b48.tar.gz",
+#     strip_prefix = "rules_boost-96e9b631f104b43a53c21c87b01ac538ad6f3b48",
+#     # When you first run this tool, it'll recommend a sha256 hash to put here with a message like: "DEBUG: Rule 'com_github_nelhage_rules_boost' indicated that a canonical reproducible form can be obtained by modifying arguments sha256 = ..."
+# )
+# load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+# boost_deps()
 
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
@@ -132,7 +132,7 @@ new_git_repository(
     remote = "https://github.com/mapsme/just_gtfs.git",
     commit = "a363830",
     # build_file = "third_party_bazel_files/just_gtfs.BUILD",
-    build_file_content = "cc_library(name = \"just_gtfs\",hdrs = glob([\"include/just_gtfs/*.h\"]),visibility = [\"//visibility:public\"],)",
+    build_file_content = "cc_library(name = \"just_gtfs\",hdrs = glob([\"include/just_gtfs/*.h\"]),includes = [\"include/just_gtfs\"],visibility = [\"//visibility:public\"],)",
 )
 
 # libosmium
@@ -201,7 +201,7 @@ new_git_repository(
     remote = "https://github.com/martinus/robin-hood-hashing.git",
     commit = "f2cae2e",
     # build_file = "third_party_bazel_files/robin-hood-hashing.BUILD",
-    build_file_content = "cc_library(name = \"robin-hood-hashing\",hdrs = [\"src/include/robin_hood.h\"],visibility = [\"//visibility:public\"],)",
+    build_file_content = "cc_library(name = \"robin-hood-hashing\",hdrs = [\"src/include/robin_hood.h\"],includes=[\"src/include\"],visibility = [\"//visibility:public\"],)",
 )
 
 # 安装版本的依赖库
@@ -221,11 +221,23 @@ new_local_repository(
     build_file_content = "cc_import(name = \"libspatialite\",shared_library = \"lib/x86_64-linux-gnu/libspatialite.so\",static_library = \"lib/x86_64-linux-gnu/libspatialite.a\",visibility = [\"//visibility:public\"],)",
 )
 
-
 # curl
 new_local_repository(
     name = "curl",
     path = "/usr",
     # build_file = "third_party_bazel_files/curl.BUILD",
     build_file_content = "cc_import(name = \"libcurl\",shared_library = \"lib/x86_64-linux-gnu/libcurl.so\",static_library = \"lib/x86_64-linux-gnu/libcurl.a\",visibility = [\"//visibility:public\"],)",
+)
+
+# lua
+new_local_repository(
+    name = "lua",
+    path = "/usr",
+    build_file_content = "cc_import(name = \"liblua\",shared_library = \"lib/x86_64-linux-gnu/libluajit-5.1.so\",static_library = \"lib/x86_64-linux-gnu/libluajit-5.1.a\",visibility = [\"//visibility:public\"],)",
+)
+
+new_local_repository(
+    name = "boost",
+    path = "/usr",
+    build_file_content = "cc_import(name = \"libboost_system\",shared_library = \"lib/x86_64-linux-gnu/libboost_system.so\",static_library = \"lib/x86_64-linux-gnu/libboost_system.a\",visibility = [\"//visibility:public\"],)\ncc_import(name = \"libboost_filesystem\",shared_library = \"lib/x86_64-linux-gnu/libboost_filesystem.so\",static_library = \"lib/x86_64-linux-gnu/libboost_filesystem.a\",visibility = [\"//visibility:public\"],)\ncc_import(name = \"libboost_fiber\",shared_library = \"lib/x86_64-linux-gnu/libboost_fiber.so\",static_library = \"lib/x86_64-linux-gnu/libboost_fiber.a\",visibility = [\"//visibility:public\"],)",
 )

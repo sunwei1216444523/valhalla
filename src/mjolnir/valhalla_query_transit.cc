@@ -21,7 +21,7 @@
 #include "midgard/logging.h"
 #include "midgard/util.h"
 #include "mjolnir/servicedays.h"
-#include "valhalla/proto/transit.pb.h"
+#include "proto/transit.pb.h"
 
 using namespace valhalla::midgard;
 using namespace valhalla::baldr;

@@ -12,7 +12,7 @@
 #include "valhalla/baldr/graphid.h"
 #include "valhalla/filesystem.h"
 #include "valhalla/midgard/pointll.h"
-#include "valhalla/proto/transit.pb.h"
+#include "proto/transit.pb.h"
 
 namespace valhalla {
 namespace mjolnir {

@@ -13,7 +13,7 @@
 #include "test.h"
 #include "thor/bidirectional_astar.h"
 #include "thor/unidirectional_astar.h"
-#include <valhalla/proto/options.pb.h>
+#include "proto/options.pb.h"
 
 using namespace valhalla;
 

@@ -10,7 +10,7 @@
 #include "sif/autocost.h"
 #include "sif/costfactory.h"
 #include "thor/costmatrix.h"
-#include <valhalla/proto/options.pb.h>
+#include "proto/options.pb.h"
 
 using namespace valhalla;
 

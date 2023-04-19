@@ -6,7 +6,7 @@
 
 #include <boost/format.hpp>
 #include <gtest/gtest.h>
-#include <valhalla/proto/options.pb.h>
+#include "proto/options.pb.h"
 
 using namespace valhalla;
 using namespace valhalla::loki;
