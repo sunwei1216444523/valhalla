@@ -55,7 +55,10 @@ TYR_HDRS = glob(["valhalla/tyr/*.h"]) + glob(["src/tyr/*.h"])
 TYR_SRCS = glob(["src/tyr/*.cc"])
 
 # Valhlla common
-COMMON_HDRS = glob(["valhalla/*.h"])
+# COMMON_HDRS = glob(["valhalla/*.h"])
+COMMON_HDRS = ["valhalla/valhalla.h", "valhalla/config.h", "valhalla/worker.h",
+               "valhalla/filesystem.h", "valhalla/macro.h",
+               "valhalla/proto_conversions.h", "valhalla/tile_server.h",]
 COMMON_SRCS = glob(["src/*.cc"], exclude = [
     "src/valhalla_benchmark_adjacency_list.cc",
     "src/valhalla_benchmark_loki.cc",
@@ -119,7 +122,6 @@ cc_library(
         # [备注]系统假若安装了，bazel会自动去搜索，不需要手动添加
         # "@sqlite3//:sqlite3",
         "@lua//:liblua",
-
     ],
     includes = [
         "valhalla/baldr",
@@ -140,77 +142,20 @@ cc_library(
     ],
 )
 
-cc_library(
-    name = "baldr",
-    hdrs = glob(["valhalla/baldr/*.h"]),
-    srcs = glob(["src/baldr/*.cc", "src/baldr/*.h",]),
-    deps = [
-        ":midgard",
-        "//proto:options_cc_proto",
-        "//proto:common_cc_proto",
-        "@com_google_protobuf//:protobuf",
-        "@boost//:filesystem",
-        "@boost//:system",
-        "@boost//:algorithm",
-        "@date//:date",
-        # curl
-        # zlib
-    ],
-    # copts = [
-    #     "-std=c++14",
-    # ]
-)
-
-### midgard
-
-cc_library(
-    name = "midgard",
-    hdrs = glob(["valhalla/midgard/*.h",]) + [
-        "valhalla/filesystem.h",
-        # 以下还是得添加
-        "third_party/robin-hood-hashing/src/include/robin_hood.h",
-    ],
-    srcs = glob(["src/midgard/*.cc",]),
-    includes = [
-        "valhalla/midgard",
-        "valhalla",
-        "third_party/robin-hood-hashing/src/include"
-    ],
-    deps = [
-        "@boost//:fiber",
-        # "//third_party/robin-hood-hashing:robin-hood",
-        # boost
-        # robin_hood::robin_hood
-    ],
-    copts = [
-        "-std=c++14",
-    ],
-    # copts = [
-    #     "-Ivalhalla",
-    #     "-Ivalhalla/midgard",
-    #     "-Ithird_party/robin-hood-hashing/src/include",
-    # ],
-)
-
-#### Baldr
-# cc_library(
-#     name = "date_time_lib",
-#     hdrs = cc_date_time(["africa", "europe"]),
-#     visibility = ["//visibility:public"],
-# )
-# cc_library(
-#     name = "baldr",
-#     srcs = glob(["src/*.cc"]),
-#     hdrs = generate_header_files(ctx) + glob(["valhalla/baldr/*.h"]),
-#     visibility = ["//visibility:public"],
-# )
+TEST_HDRS = [
+        "valhalla/valhalla.h",
+        "valhalla/config.h",
+    ]
 
 cc_binary(
-    name = "sunweitest",
-    srcs = [
-        "sunweitest.cc",
-    ],
+    name = "test",
+    srcs = glob(["sunweitest/*.cc"]) + TEST_HDRS, 
     deps = [
-        ":midgard",
-    ]
+        "@osm-binary//:osm_cc_proto_fileformat",
+        "@osm-binary//:osm_cc_proto_osmformat",
+        "@lua//:liblua",
+    ],
 )
+
+
+
