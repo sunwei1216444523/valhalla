@@ -143,6 +143,7 @@ cc_library(
         # 使用gold编译器，Linux专属
         # "-fuse-ld=gold",
     ],
+    alwayslink = 1,
 )
 
 #build tiles
@@ -157,6 +158,7 @@ cc_binary(
 )
 
 # valhalla_service
+# 主要是需要编译出这个二进制文件即可
 cc_binary(
     name = "valhalla_service",
     srcs = ["src/valhalla_service.cc"],
@@ -164,21 +166,24 @@ cc_binary(
     copts = ["-std=c++17",],
 )
 
-
-
-TEST_HDRS = [
-        "valhalla/valhalla.h",
-        "valhalla/config.h",
-        "sunweitest/aid.h",
-        "sunweitest/comm.h"
+#==========================test======
+cc_library(
+    name = "aid",
+    hdrs = ["sunweitest/aid.h"],
+    srcs = ["sunweitest/aid.cpp"],
+    deps = [
+        "//proto:api_cc_proto",
     ]
+)
+
 
 cc_binary(
     name = "test",
-    srcs = glob(["sunweitest/*.cc"]), 
+    srcs = glob(["sunweimain/*.cc"]), 
     # srcs = ["sunweitest/main.cc"],
     deps = [
-        "//:valhalla_core",
+        "//:aid",
+        # "//:valhalla_core",
         # "//sunweitestproto:cc_proto_sunwei",
     ],
     copts = ["-std=c++17",],

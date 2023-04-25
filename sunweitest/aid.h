@@ -1,9 +1,6 @@
 #pragma once
-#include "proto/options.pb.h"
-#include "sunweitestproto/sunwei.pb.h"
-#include "comm.h"
+#include "proto/api.pb.h"
 
 namespace valhalla {
-    int xray;
-    void test();
+const std::string& sunwei_Options_Format_Enum_Name(const Options::Format match);
 }
