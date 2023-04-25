@@ -9,7 +9,7 @@
 #include "baldr/graphid.h"
 #include "baldr/graphreader.h"
 #include "baldr/graphtile.h"
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "midgard/logging.h"
 
 namespace valhalla {

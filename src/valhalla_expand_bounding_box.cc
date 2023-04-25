@@ -5,8 +5,8 @@
 
 #include "baldr/graphreader.h"
 #include "baldr/rapidjson_utils.h"
-#include "config.h"
-#include "filesystem.h"
+#include "valhalla/config.h"
+#include "valhalla/filesystem.h"
 
 namespace bpt = boost::property_tree;
 

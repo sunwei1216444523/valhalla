@@ -3,7 +3,7 @@
 #include "baldr/directededge.h"
 #include "baldr/graphconstants.h"
 #include "baldr/nodeinfo.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 #include "sif/costconstants.h"
 #include "sif/dynamiccost.h"
 

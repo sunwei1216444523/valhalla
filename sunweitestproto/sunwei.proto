@@ -1,0 +1,13 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+package emiya;
+
+message Info {
+    enum Gender {
+        male = 0;
+        female = 1;
+    }
+    oneof has_has_tiles {
+        bool has_tiles = 1;
+    }
+}

@@ -3,7 +3,7 @@
 #include "baldr/graphconstants.h"
 #include "midgard/constants.h"
 #include "midgard/logging.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 #include "worker.h"
 
 #ifdef INLINE_TEST

@@ -10,7 +10,7 @@
 
 #include "baldr/curl_tilegetter.h"
 #include "baldr/tilehierarchy.h"
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "midgard/pointll.h"
 #include "midgard/sequence.h"
 #include "mjolnir/elevationbuilder.h"

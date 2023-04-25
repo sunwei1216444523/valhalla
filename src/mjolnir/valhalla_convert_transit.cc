@@ -1,9 +1,9 @@
 #include "baldr/rapidjson_utils.h"
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "mjolnir/convert_transit.h"
 #include "mjolnir/validatetransit.h"
 
-#include "config.h"
+#include "valhalla/config.h"
 #include <cxxopts.hpp>
 
 filesystem::path config_file_path;

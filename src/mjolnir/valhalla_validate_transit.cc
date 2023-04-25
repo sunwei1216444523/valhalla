@@ -7,8 +7,8 @@
 
 #include "baldr/graphid.h"
 #include "baldr/rapidjson_utils.h"
-#include "config.h"
-#include "filesystem.h"
+#include "valhalla/config.h"
+#include "valhalla/filesystem.h"
 #include "midgard/aabb2.h"
 #include "midgard/logging.h"
 #include "midgard/point2.h"

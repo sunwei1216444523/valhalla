@@ -1,9 +1,9 @@
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 
 #include <cxxopts.hpp>
 
 #include "baldr/rapidjson_utils.h"
-#include "config.h"
+#include "valhalla/config.h"
 #include "midgard/logging.h"
 #include "midgard/util.h"
 #include "mjolnir/adminbuilder.h"

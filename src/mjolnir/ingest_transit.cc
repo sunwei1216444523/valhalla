@@ -30,8 +30,8 @@
 #include "midgard/sequence.h"
 #include "midgard/tiles.h"
 
-#include "filesystem.h"
-#include "just_gtfs/just_gtfs.h"
+#include "valhalla/filesystem.h"
+#include "just_gtfs.h"
 #include "midgard/util.h"
 #include "mjolnir/admin.h"
 #include "mjolnir/ingest_transit.h"

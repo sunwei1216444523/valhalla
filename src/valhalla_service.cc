@@ -20,12 +20,12 @@
 using namespace prime_server;
 #endif
 
-#include "midgard/logging.h"
+#include "valhalla/midgard/logging.h"
 
-#include "loki/worker.h"
-#include "odin/worker.h"
-#include "thor/worker.h"
-#include "tyr/actor.h"
+#include "valhalla/loki/worker.h"
+#include "valhalla/odin/worker.h"
+#include "valhalla/thor/worker.h"
+#include "valhalla/tyr/actor.h"
 
 int main(int argc, char** argv) {
 #ifdef HAVE_HTTP

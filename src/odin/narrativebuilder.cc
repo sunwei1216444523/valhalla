@@ -279,7 +279,7 @@ void NarrativeBuilder::Build(std::list<Maneuver>& maneuvers) {
 
         // Set verbal transition alert instruction if previous maneuver
         // is greater than 2 km
-        if (prev_maneuver && (prev_maneuver->length(Options::kilometers) >
+        if (prev_maneuver && (prev_maneuver->length(valhalla::Options::kilometers) >
                               kVerbalAlertMergePriorManeuverMinimumLength)) {
           maneuver.set_verbal_transition_alert_instruction(FormVerbalAlertMergeInstruction(maneuver));
         }
@@ -4323,33 +4323,35 @@ std::string NarrativeBuilder::GetPluralCategory(size_t count) {
 std::string NarrativeBuilder::FormLength(Maneuver& maneuver,
                                          const std::vector<std::string>& metric_lengths,
                                          const std::vector<std::string>& us_customary_lengths) {
-  switch (options_.units()) {
-    case Options::miles: {
-      return FormUsCustomaryLength((maneuver.has_combined_enter_exit_roundabout()
-                                        ? maneuver.roundabout_exit_length(Options::miles)
-                                        : maneuver.length(Options::miles)),
-                                   us_customary_lengths);
-    }
-    default: {
-      return FormMetricLength((maneuver.has_combined_enter_exit_roundabout()
-                                   ? maneuver.roundabout_exit_length(Options::kilometers)
-                                   : maneuver.length(Options::kilometers)),
-                              metric_lengths);
-    }
-  }
+                                          return "";
+  // switch (options_.units()) {
+  //   case /*Options::miles*/1: {
+  //     // return FormUsCustomaryLength((maneuver.has_combined_enter_exit_roundabout()
+  //     //                                   ? maneuver.roundabout_exit_length(valhalla::Options::miles)
+  //     //                                   : maneuver.length(valhalla::Options::miles)),
+  //     //                              us_customary_lengths);
+  //   }
+  //   default: {
+  //     return FormMetricLength((maneuver.has_combined_enter_exit_roundabout()
+  //                                  ? maneuver.roundabout_exit_length(Options::kilometers)
+  //                                  : maneuver.length(Options::kilometers)),
+  //                             metric_lengths);
+  //   }
+  // }
 }
 
 std::string NarrativeBuilder::FormLength(float distance,
                                          const std::vector<std::string>& metric_lengths,
                                          const std::vector<std::string>& us_customary_lengths) {
-  switch (options_.units()) {
-    case Options::miles: {
-      return FormUsCustomaryLength(distance, us_customary_lengths);
-    }
-    default: {
-      return FormMetricLength(distance, metric_lengths);
-    }
-  }
+  // switch (options_.units()) {
+  //   case Options::miles: {
+  //     return FormUsCustomaryLength(distance, us_customary_lengths);
+  //   }
+  //   default: {
+  //     return FormMetricLength(distance, metric_lengths);
+  //   }
+  // }
+  return "";
 }
 
 std::string NarrativeBuilder::FormMetricLength(float kilometers,

@@ -17,7 +17,7 @@
 namespace vm = valhalla::midgard;
 namespace vb = valhalla::baldr;
 
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "mjolnir/directededgebuilder.h"
 #include "mjolnir/graphtilebuilder.h"
 #include "mjolnir/graphvalidator.h"

@@ -3,7 +3,7 @@
 #include "baldr/attributes_controller.h"
 #include "baldr/graphconstants.h"
 #include "odin/enhancedtrippath.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 #include "tyr/serializers.h"
 
 using namespace valhalla;

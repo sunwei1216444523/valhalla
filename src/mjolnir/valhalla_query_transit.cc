@@ -16,8 +16,8 @@
 
 #include "baldr/graphreader.h"
 #include "baldr/tilehierarchy.h"
-#include "config.h"
-#include "filesystem.h"
+#include "valhalla/config.h"
+#include "valhalla/filesystem.h"
 #include "midgard/logging.h"
 #include "midgard/util.h"
 #include "mjolnir/servicedays.h"

@@ -6,7 +6,7 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
 
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 
 #include "baldr/datetime.h"
 #include "baldr/graphconstants.h"

@@ -20,7 +20,7 @@
 
 #include "proto/options.pb.h"
 
-#include "config.h"
+#include "valhalla/config.h"
 
 using namespace valhalla;
 using namespace valhalla::midgard;

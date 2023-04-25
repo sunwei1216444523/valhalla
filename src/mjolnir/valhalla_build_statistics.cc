@@ -18,14 +18,14 @@
 #include <utility>
 #include <vector>
 
-#include "config.h"
+#include "valhalla/config.h"
 
 #include "baldr/graphconstants.h"
 #include "baldr/graphid.h"
 #include "baldr/graphreader.h"
 #include "baldr/nodeinfo.h"
 #include "baldr/tilehierarchy.h"
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "midgard/aabb2.h"
 #include "midgard/distanceapproximator.h"
 #include "midgard/logging.h"

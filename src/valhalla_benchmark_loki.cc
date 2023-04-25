@@ -13,8 +13,8 @@
 #include <cxxopts.hpp>
 
 #include "baldr/rapidjson_utils.h"
-#include "config.h"
-#include "filesystem.h"
+#include "valhalla/config.h"
+#include "valhalla/filesystem.h"
 #include "loki/search.h"
 #include "midgard/logging.h"
 #include "midgard/pointll.h"

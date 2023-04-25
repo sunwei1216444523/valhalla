@@ -7,7 +7,7 @@
 #include "baldr/connectivity_map.h"
 #include "baldr/curl_tilegetter.h"
 #include "baldr/graphreader.h"
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "incident_singleton.h"
 #include "midgard/encoded.h"
 #include "midgard/logging.h"

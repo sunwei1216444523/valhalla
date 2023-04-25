@@ -4,7 +4,7 @@
 #include "midgard/aabb2.h"
 #include "midgard/logging.h"
 #include "odin/util.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 #include "tyr/serializers.h"
 
 using namespace valhalla;

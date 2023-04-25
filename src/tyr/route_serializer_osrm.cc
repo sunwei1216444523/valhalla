@@ -19,7 +19,7 @@
 #include "proto/directions.pb.h"
 #include "proto/options.pb.h"
 #include "proto/trip.pb.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 #ifdef INLINE_TEST
 #include "test.h"
 #endif

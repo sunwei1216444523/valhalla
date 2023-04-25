@@ -23,7 +23,7 @@
 
 #include <boost/algorithm/string.hpp>
 
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "microtar.h"
 
 namespace {

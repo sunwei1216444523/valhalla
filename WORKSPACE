@@ -39,15 +39,23 @@ rules_proto_toolchains()
 # )
 
 # 官方推荐尽量使用http_archieve的方式而不是git的方式
-
 git_repository(
     name = "com_google_protobuf",
     # 此处如果使用更高版本就会出现c++14不支持的问题
-    tag = "v3.21.7",
+    # tag = "v3.21.7",
+    tag = "v3.11.2",
     remote = "https://github.com/protocolbuffers/protobuf.git",
 )
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 protobuf_deps()
+# http_archive(
+#     name = "com_google_protobuf",
+#     patch_args = ["-p1"],
+#     patches = ["@envoy//bazel:protobuf.patch", "//bazel:protobuf.patch"],
+#     sha256 = "d7cfd31620a352b2ee8c1ed883222a0d77e44346643458e062e86b1d069ace3e",
+#     strip_prefix = "protobuf-3.10.1",
+#     urls = ["https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz"],
+# )
 
 # OSM
 new_git_repository(
@@ -73,7 +81,7 @@ new_git_repository(
     remote = "https://github.com/vthiery/cpp-statsd-client.git",
     commit = "8cc00d0",
     # build_file = "third_party_bazel_files/cpp-statsd-client.BUILD",
-    build_file_content = "cc_library(name = \"cpp-statsd-client\",hdrs = glob([\"include/cpp-statsd-client/*.hpp\"]),visibility = [\"//visibility:public\"],)",
+    build_file_content = "cc_library(name = \"cpp-statsd-client\",hdrs = glob([\"include/cpp-statsd-client/*.hpp\"]),includes = [\"include\"],visibility = [\"//visibility:public\"],)",
 )
 
 # cxxopts
@@ -91,7 +99,7 @@ new_git_repository(
     remote = "https://github.com/HowardHinnant/date.git",
     commit = "a2fdba1",
     # build_file = "third_party_bazel_files/date.BUILD",
-    build_file_content = "cc_library(name = \"date\",srcs = glob([\"src/*.cpp\"]),hdrs = glob([\"include/date/*.h\"]),includes = [\"include\", \"include/date\"],visibility = [\"//visibility:public\"],)",
+    build_file_content = "cc_library(name = \"date\",srcs = glob([\"src/*.cpp\"]),hdrs = glob([\"include/date/*.h\"]),includes = [\"include\", \"include/date\"],deps = [\"@curl//:libcurl\"],visibility = [\"//visibility:public\"],)",
 )
 # new_local_repository(
 #     name = "date",
@@ -145,12 +153,17 @@ new_git_repository(
 )
 
 # lz4 应用于 valhalla::skadi模块
-new_git_repository(
+# new_git_repository(
+#     name = "lz4",
+#     remote = "https://github.com/lz4/lz4.git",
+#     commit = "d443718",
+#     # build_file = "third_party_bazel_files/lz4.BUILD",
+#     build_file_content = "cc_library(name = \"lz4\",hdrs = glob([\"lib/*.h\"]) + [\"lib/lz4.c\"],srcs = glob([\"lib/*.c\"], exclude = [\"lib/lz4.c\"]),includes = [\"lib\"],visibility = [\"//visibility:public\"],)",
+# )
+new_local_repository(
     name = "lz4",
-    remote = "https://github.com/lz4/lz4.git",
-    commit = "d443718",
-    # build_file = "third_party_bazel_files/lz4.BUILD",
-    build_file_content = "cc_library(name = \"lz4\",hdrs = glob([\"lib/*.h\"]) + [\"lib/lz4.c\"],srcs = glob([\"lib/*.c\"], exclude = [\"lib/lz4.c\"]),includes = [\"lib\"],visibility = [\"//visibility:public\"],)",
+    path = "/usr",
+    build_file_content = "cc_import(name = \"lz4\",includes = [\"include\"],shared_library = \"lib/x86_64-linux-gnu/liblz4.so\",visibility = [\"//visibility:public\"],)",
 )
 
 # microtar
@@ -226,15 +239,29 @@ new_local_repository(
     name = "curl",
     path = "/usr",
     # build_file = "third_party_bazel_files/curl.BUILD",
-    build_file_content = "cc_import(name = \"libcurl\",shared_library = \"lib/x86_64-linux-gnu/libcurl.so\",static_library = \"lib/x86_64-linux-gnu/libcurl.a\",visibility = [\"//visibility:public\"],)",
+    build_file_content = "cc_import(name = \"libcurl\",includes=[\"include/x86_64-linux-gnu/curl\"],shared_library = \"lib/x86_64-linux-gnu/libcurl.so\",visibility = [\"//visibility:public\"],)",
 )
 
+
 # lua
-new_local_repository(
+# new_local_repository(
+#     name = "lua",
+#     path = "/usr",
+#     build_file_content = "cc_import(name = \"liblua\",hdrs=glob([\"include/luajit-2.1/*.h\"]),includes=[\"include/luajit-2.1\"],shared_library = \"lib/x86_64-linux-gnu/libluajit-5.1.so\",static_library = \"lib/x86_64-linux-gnu/libluajit-5.1.a\",visibility = [\"//visibility:public\"],)",
+# )
+
+# http_archive(
+#     name = "lua",
+#     url = "https://github.com/lua/lua/archive/refs/tags/v5.4.4.tar.gz",
+#     build_file_content = "cc_library(name = \"lua\",hdrs = glob([\"inlcude/*.h\"]),srcs = glob([\"*.c\"]),visibility = [\"//visibility:public\"],)",
+# )
+new_git_repository(
     name = "lua",
-    path = "/usr",
-    build_file_content = "cc_import(name = \"liblua\",shared_library = \"lib/x86_64-linux-gnu/libluajit-5.1.so\",static_library = \"lib/x86_64-linux-gnu/libluajit-5.1.a\",visibility = [\"//visibility:public\"],)",
+    remote = "https://github.com/lua/lua.git",
+    commit = "e15f1f2",
+    build_file_content = "cc_library(name = \"lua\",hdrs = glob([\"*.h\"]) + glob([\"*.c\"]),visibility = [\"//visibility:public\"],)",
 )
+
 
 new_local_repository(
     name = "boost",

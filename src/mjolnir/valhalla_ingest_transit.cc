@@ -1,7 +1,7 @@
 #include "baldr/rapidjson_utils.h"
 #include "mjolnir/ingest_transit.h"
 
-#include "config.h"
+#include "valhalla/config.h"
 #include <cxxopts.hpp>
 
 filesystem::path config_file_path;

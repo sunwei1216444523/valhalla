@@ -1,6 +1,6 @@
 #include "baldr/tilehierarchy.h"
-#include "config.h"
-#include "filesystem.h"
+#include "valhalla/config.h"
+#include "valhalla/filesystem.h"
 #include "loki/worker.h"
 #include "proto/status.pb.h"
 

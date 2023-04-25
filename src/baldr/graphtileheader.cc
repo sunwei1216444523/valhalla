@@ -3,7 +3,7 @@
 #include "baldr/directededge.h"
 #include "baldr/edgeinfo.h"
 #include "baldr/nodeinfo.h"
-#include "config.h"
+#include "valhalla/config.h"
 #include <string.h>
 
 using namespace valhalla::baldr;

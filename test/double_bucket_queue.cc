@@ -1,5 +1,5 @@
 #include "baldr/double_bucket_queue.h"
-#include "config.h"
+#include "valhalla/config.h"
 #include "midgard/util.h"
 #include <algorithm>
 #include <cmath>

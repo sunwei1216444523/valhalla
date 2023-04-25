@@ -12,8 +12,8 @@
 #include "baldr/connectivity_map.h"
 #include "baldr/rapidjson_utils.h"
 #include "baldr/tilehierarchy.h"
-#include "config.h"
-#include "filesystem.h"
+#include "valhalla/config.h"
+#include "valhalla/filesystem.h"
 
 using namespace valhalla::baldr;
 

@@ -14,7 +14,7 @@
 #include <unordered_map>
 #include <utility>
 
-#include "config.h"
+#include "valhalla/config.h"
 
 using namespace valhalla::midgard;
 using namespace valhalla::baldr;

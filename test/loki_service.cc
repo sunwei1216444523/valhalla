@@ -4,7 +4,7 @@
 #include "baldr/rapidjson_utils.h"
 #include "midgard/logging.h"
 #include "proto/api.pb.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <prime_server/http_protocol.hpp>
@@ -12,7 +12,7 @@
 #include <thread>
 #include <unistd.h>
 
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "loki/worker.h"
 #include "odin/worker.h"
 #include "thor/worker.h"

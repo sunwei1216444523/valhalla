@@ -4,7 +4,7 @@
 #include "midgard/constants.h"
 #include "midgard/util.h"
 #include "proto/options.pb.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 #include "sif/costconstants.h"
 
 #ifdef INLINE_TEST

@@ -19,13 +19,13 @@
 #include "baldr/graphreader.h"
 #include "baldr/predictedspeeds.h"
 #include "baldr/rapidjson_utils.h"
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "midgard/logging.h"
 #include "midgard/util.h"
 #include "mjolnir/graphtilebuilder.h"
 #include "mjolnir/util.h"
 
-#include "config.h"
+#include "valhalla/config.h"
 
 namespace vm = valhalla::midgard;
 namespace vb = valhalla::baldr;

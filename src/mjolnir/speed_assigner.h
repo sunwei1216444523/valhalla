@@ -3,7 +3,7 @@
 #include "baldr/directededge.h"
 #include "baldr/graphconstants.h"
 #include "baldr/rapidjson_utils.h"
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "midgard/logging.h"
 
 #include <array>

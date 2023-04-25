@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include "config.h"
+#include "valhalla/config.h"
 #include "worker.h"
 
 #include "baldr/graphid.h"

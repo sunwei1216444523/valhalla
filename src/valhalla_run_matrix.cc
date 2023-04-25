@@ -12,7 +12,7 @@
 
 #include "baldr/graphreader.h"
 #include "baldr/pathlocation.h"
-#include "config.h"
+#include "valhalla/config.h"
 #include "loki/worker.h"
 #include "midgard/logging.h"
 #include "odin/directionsbuilder.h"

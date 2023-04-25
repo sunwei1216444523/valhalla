@@ -5,7 +5,7 @@
 
 #include <boost/algorithm/string.hpp>
 
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "midgard/logging.h"
 #include "mjolnir/osmdata.h"
 #include "mjolnir/util.h"

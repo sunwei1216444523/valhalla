@@ -1,6 +1,6 @@
 #include "baldr/graphreader.h"
 #include "baldr/rapidjson_utils.h"
-#include "config.h"
+#include "valhalla/config.h"
 #include "mjolnir/graphtilebuilder.h"
 #include "speed_assigner.h"
 

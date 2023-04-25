@@ -5,7 +5,7 @@
 #include "baldr/time_info.h"
 #include "midgard/logging.h"
 #include "midgard/util.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 
 #include <algorithm>
 #include <exception>

@@ -3,7 +3,7 @@
 
 #include "baldr/graphconstants.h"
 #include "midgard/util.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 #include "sif/autocost.h"
 #include "sif/bicyclecost.h"
 #include "sif/dynamiccost.h"

@@ -12,7 +12,7 @@
 #include "midgard/util.h"
 #include "odin/util.h"
 #include "odin/worker.h"
-#include "proto_conversions.h"
+#include "valhalla/proto_conversions.h"
 #include "sif/costfactory.h"
 #include "thor/worker.h"
 #include "worker.h"

@@ -39,7 +39,7 @@
 #include "proto/options.pb.h"
 #include "proto/trip.pb.h"
 
-#include "config.h"
+#include "valhalla/config.h"
 
 using namespace valhalla::midgard;
 using namespace valhalla::baldr;

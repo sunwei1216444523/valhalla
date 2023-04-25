@@ -1,7 +1,7 @@
 
 #include "thor/edgestatus.h"
 #include "baldr/graphtile.h"
-#include "config.h"
+#include "valhalla/config.h"
 
 #include "test.h"
 

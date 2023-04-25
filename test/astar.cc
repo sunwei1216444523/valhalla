@@ -8,7 +8,7 @@
 #include "baldr/location.h"
 #include "baldr/rapidjson_utils.h"
 #include "baldr/tilehierarchy.h"
-#include "filesystem.h"
+#include "valhalla/filesystem.h"
 #include "loki/search.h"
 #include "loki/worker.h"
 #include "midgard/pointll.h"

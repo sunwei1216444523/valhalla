@@ -17,13 +17,6 @@ proto_library(
         ":status_proto"
     ],
     visibility = ["//visibility:public"],
-    # exports = [
-    #     ":options_proto",
-    #     ":trip_proto",
-    #     ":directions_proto",
-    #     ":info_proto",
-    #     ":status_proto"
-    # ],
 )
 
 cc_proto_library(
@@ -56,10 +49,6 @@ proto_library(
         ":sign_proto",
     ],
     visibility = ["//visibility:public"],
-    # exports = [
-    #     ":common_proto",
-    #     ":sign_proto",
-    # ],
 )
 
 cc_proto_library(
@@ -103,7 +92,6 @@ proto_library(
     srcs = ["options.proto"],
     deps = [":common_proto"],
     visibility = ["//visibility:public"],
-    # exports = [":common_proto"],
 )
 
 cc_proto_library(
