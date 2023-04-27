@@ -38,12 +38,19 @@ rules_proto_toolchains()
 #     strip_prefix = "googletest-release-1.11.0",
 # )
 
+http_archive(
+    name = "com_google_absl",
+    url = "https://github.com/abseil/abseil-cpp/archive/refs/tags/20230125.2.tar.gz",
+    strip_prefix = "abseil-cpp-20230125.2",
+)
+
 # 官方推荐尽量使用http_archieve的方式而不是git的方式
 git_repository(
     name = "com_google_protobuf",
     # 此处如果使用更高版本就会出现c++14不支持的问题
-    # tag = "v3.21.7",
-    tag = "v3.11.2",
+    tag = "v3.21.7",
+    # tag = "v3.11.2",
+    # tag = "v3.22.3",
     remote = "https://github.com/protocolbuffers/protobuf.git",
 )
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")

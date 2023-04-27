@@ -101,6 +101,8 @@ const std::string& GuidanceViewTypeToString(const valhalla::DirectionsLeg_Guidan
 }
 
 bool Options_Action_Enum_Parse(const std::string& action, Options::Action* a) {
+  return Options_Action_Parse(action, a);
+  /*
   static const std::unordered_map<std::string, Options::Action> actions{
       {"route", Options::route},
       {"locate", Options::locate},
@@ -120,9 +122,12 @@ bool Options_Action_Enum_Parse(const std::string& action, Options::Action* a) {
     return false;
   *a = i->second;
   return true;
+  */
 }
 
 bool Options_ExpansionAction_Enum_Parse(const std::string& action, Options::Action* a) {
+  return Options_Action_Parse(action, a);
+  /*
   static const std::unordered_map<std::string, Options::Action> actions{{"route", Options::route},
                                                                         {"isochrone",
                                                                          Options::isochrone}};
@@ -131,9 +136,11 @@ bool Options_ExpansionAction_Enum_Parse(const std::string& action, Options::Acti
     return false;
   *a = i->second;
   return true;
+  */
 }
 
 const std::string& Options_Action_Enum_Name(const Options::Action action) {
+  /*
   static const std::string empty;
   static const std::unordered_map<int, std::string> actions{
       {Options::route, "route"},
@@ -151,9 +158,13 @@ const std::string& Options_Action_Enum_Name(const Options::Action action) {
   };
   auto i = actions.find(action);
   return i == actions.cend() ? empty : i->second;
+  */
+  return Options_Action_Name(action);
 }
 
 bool Location_Type_Enum_Parse(const std::string& type, Location::Type* t) {
+  return Location_Type_Parse(type, t);
+  /*
   static const std::unordered_map<std::string, Location::Type> types{
       {"break", Location::kBreak},
       {"through", Location::kThrough},
@@ -165,8 +176,11 @@ bool Location_Type_Enum_Parse(const std::string& type, Location::Type* t) {
     return false;
   *t = i->second;
   return true;
+  */
 }
 const std::string& Location_Type_Enum_Name(const Location::Type type) {
+  return Location_Type_Name(type);
+  /*
   static const std::string empty;
   static const std::unordered_map<int, std::string> types{
       {Location::kBreak, "break"},
@@ -176,9 +190,12 @@ const std::string& Location_Type_Enum_Name(const Location::Type type) {
   };
   auto i = types.find(type);
   return i == types.cend() ? empty : i->second;
+  */
 }
 
 const std::string& Location_SideOfStreet_Enum_Name(const Location::SideOfStreet side) {
+  return Location_SideOfStreet_Name(side);
+  /*
   static const std::string empty;
   static const std::unordered_map<int, std::string> sides{
       {Location::kLeft, "left"},
@@ -187,9 +204,12 @@ const std::string& Location_SideOfStreet_Enum_Name(const Location::SideOfStreet 
   };
   auto i = sides.find(side);
   return i == sides.cend() ? empty : i->second;
+  */
 }
 
 bool Costing_Enum_Parse(const std::string& costing, Costing::Type* c) {
+  return Costing_Type_Parse(costing, c);
+  /*
   static const std::unordered_map<std::string, Costing::Type> costings{
       {"auto", Costing::auto_},
       // auto_shorter is deprecated
@@ -212,9 +232,12 @@ bool Costing_Enum_Parse(const std::string& costing, Costing::Type* c) {
     return false;
   *c = i->second;
   return true;
+  */
 }
 
 const std::string& Costing_Enum_Name(const Costing::Type costing) {
+  return Costing_Type_Name(costing);
+  /*
   static const std::string empty;
   static const std::unordered_map<int, std::string> costings{
       {Costing::auto_, "auto"},
@@ -234,9 +257,12 @@ const std::string& Costing_Enum_Name(const Costing::Type costing) {
   };
   auto i = costings.find(costing);
   return i == costings.cend() ? empty : i->second;
+  */
 }
 
 bool ShapeMatch_Enum_Parse(const std::string& match, ShapeMatch* s) {
+  return ShapeMatch_Parse(match, s);
+  /*
   static const std::unordered_map<std::string, ShapeMatch> matches{
       {"edge_walk", ShapeMatch::edge_walk},
       {"map_snap", ShapeMatch::map_snap},
@@ -247,9 +273,12 @@ bool ShapeMatch_Enum_Parse(const std::string& match, ShapeMatch* s) {
     return false;
   *s = i->second;
   return true;
+  */
 }
 
 const std::string& ShapeMatch_Enum_Name(const ShapeMatch match) {
+  return ShapeMatch_Name(match);
+  /*
   static const std::string empty;
   static const std::unordered_map<int, std::string> matches{
       {ShapeMatch::edge_walk, "edge_walk"},
@@ -258,9 +287,12 @@ const std::string& ShapeMatch_Enum_Name(const ShapeMatch match) {
   };
   auto i = matches.find(match);
   return i == matches.cend() ? empty : i->second;
+  */
 }
 
 bool Options_Format_Enum_Parse(const std::string& format, Options::Format* f) {
+  return Options_Format_Parse(format, f);
+  /*
   static const std::unordered_map<std::string, Options::Format> formats{
       {"json", Options::json},
       {"gpx", Options::gpx},
@@ -272,9 +304,12 @@ bool Options_Format_Enum_Parse(const std::string& format, Options::Format* f) {
     return false;
   *f = i->second;
   return true;
+  */
 }
 
 const std::string& Options_Format_Enum_Name(const Options::Format match) {
+  return Options_Format_Name(match);
+  /*
   static const std::string empty;
   static const std::unordered_map<int, std::string> formats{
       {Options::json, "json"},
@@ -284,9 +319,12 @@ const std::string& Options_Format_Enum_Name(const Options::Format match) {
   };
   auto i = formats.find(match);
   return i == formats.cend() ? empty : i->second;
+  */
 }
 
 const std::string& Options_Units_Enum_Name(const Options::Units unit) {
+  return Options_Units_Name(unit);
+  /*
   static const std::string empty;
   static const std::unordered_map<int, std::string> units{
       {Options::kilometers, "kilometers"},
@@ -294,9 +332,12 @@ const std::string& Options_Units_Enum_Name(const Options::Units unit) {
   };
   auto i = units.find(unit);
   return i == units.cend() ? empty : i->second;
+  */
 }
 
 bool FilterAction_Enum_Parse(const std::string& action, FilterAction* a) {
+  return FilterAction_Parse(action, a);
+  /*
   static const std::unordered_map<std::string, FilterAction> actions{
       {"exclude", FilterAction::exclude},
       {"include", FilterAction::include},
@@ -306,9 +347,12 @@ bool FilterAction_Enum_Parse(const std::string& action, FilterAction* a) {
     return false;
   *a = i->second;
   return true;
+  */
 }
 
 const std::string& FilterAction_Enum_Name(const FilterAction action) {
+  return FilterAction_Name(action);
+  /*
   static const std::string empty;
   static const std::unordered_map<int, std::string> actions{
       {FilterAction::exclude, "exclude"},
@@ -316,9 +360,12 @@ const std::string& FilterAction_Enum_Name(const FilterAction action) {
   };
   auto i = actions.find(action);
   return i == actions.cend() ? empty : i->second;
+  */
 }
 
 bool DirectionsType_Enum_Parse(const std::string& dtype, DirectionsType* t) {
+  return DirectionsType_Parse(dtype, t);
+  /*
   static const std::unordered_map<std::string, DirectionsType> types{
       {"none", DirectionsType::none},
       {"maneuvers", DirectionsType::maneuvers},
@@ -329,9 +376,13 @@ bool DirectionsType_Enum_Parse(const std::string& dtype, DirectionsType* t) {
     return false;
   *t = i->second;
   return true;
+  */
 }
 
 bool PreferredSide_Enum_Parse(const std::string& pside, valhalla::Location::PreferredSide* p) {
+  // return PreferredSide_Parse(pside, p);
+  return false;
+  /*
   static const std::unordered_map<std::string, valhalla::Location::PreferredSide> types{
       {"either", valhalla::Location::either},
       {"same", valhalla::Location::same},
@@ -342,9 +393,12 @@ bool PreferredSide_Enum_Parse(const std::string& pside, valhalla::Location::Pref
     return false;
   *p = i->second;
   return true;
+  */
 }
 
 bool RoadClass_Enum_Parse(const std::string& rc_name, valhalla::RoadClass* rc) {
+  return RoadClass_Parse(rc_name, rc);
+  /*
   static const std::unordered_map<std::string, valhalla::RoadClass> types{
       {"motorway", valhalla::RoadClass::kMotorway},
       {"trunk", valhalla::RoadClass::kTrunk},
@@ -360,10 +414,13 @@ bool RoadClass_Enum_Parse(const std::string& rc_name, valhalla::RoadClass* rc) {
     return false;
   *rc = i->second;
   return true;
+  */
 }
 
 bool Options_ExpansionProperties_Enum_Parse(const std::string& prop,
                                             Options::ExpansionProperties* a) {
+  return Options_ExpansionProperties_Parse(prop, a);
+  /*
   static const std::unordered_map<std::string, Options::ExpansionProperties>
       actions{{"costs", Options_ExpansionProperties_costs},
               {"durations", Options_ExpansionProperties_durations},
@@ -375,6 +432,7 @@ bool Options_ExpansionProperties_Enum_Parse(const std::string& prop,
     return false;
   *a = i->second;
   return true;
+  */
 }
 
 const std::unordered_map<int, std::string> vehicle_to_string{

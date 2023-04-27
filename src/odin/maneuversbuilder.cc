@@ -186,7 +186,7 @@ std::list<Maneuver> ManeuversBuilder::Build() {
   std::string last_name = (trip_path_->GetCurrEdge(last_node_index)->name_size() == 0)
                               ? ""
                               : trip_path_->GetCurrEdge(last_node_index)->name(0).value();
-  std::string units = /*options_.units() == valhalla::Options::kilometers ? "kilometers" : */"miles";
+  std::string units = options_.units() == valhalla::Options::kilometers ? "kilometers" : "miles";
   LOG_DEBUG((boost::format("ROUTE_REQUEST|-j "
                            "'{\"locations\":[{\"lat\":%1$.6f,\"lon\":%2$.6f,\"street\":\"%3%\"},{"
                            "\"lat\":%4$.6f,\"lon\":%5$.6f,\"street\":\"%6%\"}],\"costing\":"
@@ -642,7 +642,7 @@ bool ManeuversBuilder::PossibleUnspecifiedInternalManeuver(std::list<Maneuver>::
                                                            std::list<Maneuver>::iterator next_man) {
   if (!curr_man->internal_intersection() && curr_man->travel_mode() == TravelMode::kDrive &&
       !prev_man->roundabout() && !curr_man->roundabout() && !next_man->roundabout() &&
-      //(curr_man->length(Options::kilometers) <= (kMaxInternalLength * kKmPerMeter)) &&
+      (curr_man->length(Options::kilometers) <= (kMaxInternalLength * kKmPerMeter)) &&
       curr_man != next_man && !curr_man->IsStartType() && !next_man->IsDestinationType()) {
     return true;
   }
@@ -1826,8 +1826,8 @@ void ManeuversBuilder::SetSimpleDirectionalManeuverType(Maneuver& maneuver,
             maneuver.set_type(DirectionsLeg_Maneuver_Type_kSlightRight);
             LOG_TRACE("ManeuverType=SLIGHT_RIGHT");
           }
-        } else if (curr_edge->IsHighway()/* &&
-                   (maneuver.length(Options_Units_kilometers) < kShortContinueThreshold)*/) {
+        } else if (curr_edge->IsHighway() &&
+                   (maneuver.length(Options_Units_kilometers) < kShortContinueThreshold)) {
           // Keep as short continue - no adjustment needed
           break;
         } else if ((maneuver.begin_relative_direction() == Maneuver::RelativeDirection::kKeepRight) &&
@@ -3004,11 +3004,11 @@ bool ManeuversBuilder::IsTurnChannelManeuverCombinable(std::list<Maneuver>::iter
     // and turn channel cannot have forward traversable intersecting edge
     // and (the post turn channel degree is somewhat straight or the turn channel is short)
     bool common_turn_channel_criteria =
-        (//(curr_man->length(Options::kilometers) <= (kMaxTurnChannelLength * kKmPerMeter)) &&
+        ((curr_man->length(Options::kilometers) <= (kMaxTurnChannelLength * kKmPerMeter)) &&
          !node->HasForwardTraversableIntersectingEdge(curr_man->end_heading(),
                                                       curr_man->travel_mode()) &&
-         (is_within_turn_channel_range(post_turn_channel_turn_degree) /*||
-          (curr_man->length(Options::kilometers) < kShortTurnChannelThreshold)*/));
+         (is_within_turn_channel_range(post_turn_channel_turn_degree) ||
+          (curr_man->length(Options::kilometers) < kShortTurnChannelThreshold)));
 
     // Verify common turn channel criteria
     if (!common_turn_channel_criteria) {
@@ -3113,7 +3113,7 @@ bool ManeuversBuilder::IsNextManeuverObvious(const std::list<Maneuver>& maneuver
 
     // Return true if a short continue maneuver
     // and the following maneuver is not a continue
-    if (/*next_man->length(Options_Units_kilometers) < kShortContinueThreshold*/1) {
+    if (next_man->length(Options_Units_kilometers) < kShortContinueThreshold) {
       auto next_next_man = std::next(next_man);
       if ((next_next_man != maneuvers.end()) &&
           (next_next_man->type() != DirectionsLeg_Maneuver_Type_kContinue)) {
@@ -3874,7 +3874,7 @@ void ManeuversBuilder::CollapseSmallEndRampFork(std::list<Maneuver>& maneuvers) 
     // If found, collapse the small end ramp fork maneuver
     if ((prev_man != curr_man) && !prev_man->has_collapsed_small_end_ramp_fork() &&
         prev_man->ramp() && curr_man->ramp() && !next_man->ramp() &&
-       // (curr_man->length(Options::kilometers) <= kSmallEndRampForkThreshold) &&
+       (curr_man->length(Options::kilometers) <= kSmallEndRampForkThreshold) &&
         is_fork_then_turn_same_direction(curr_man->type(), next_man->type())) {
       curr_man = CombineManeuvers(maneuvers, prev_man, curr_man);
       prev_man->set_has_collapsed_small_end_ramp_fork(true);

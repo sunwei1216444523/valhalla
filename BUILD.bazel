@@ -184,6 +184,7 @@ cc_binary(
     deps = [
         "//:aid",
         # "//:valhalla_core",
+        "//proto:options_cc_proto",
         # "//sunweitestproto:cc_proto_sunwei",
     ],
     copts = ["-std=c++17",],
