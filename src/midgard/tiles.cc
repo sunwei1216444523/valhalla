@@ -67,9 +67,9 @@ template <class coord_t> struct closest_first_generator_t {
         }) {
     // what global subdivision are we starting in
     // TODO: worry about wrapping around valid range
-    subcols = tiles.ncolumns() * tiles.nsubdivisions();
+    subcols = tiles.ncolumns() * tiles.nsubdivisions(); // 所表示的全球范围内所有的subcol的数量
     subrows = tiles.nrows() * tiles.nsubdivisions();
-    auto x = (seed.first - tiles.TileBounds().minx()) / tiles.TileBounds().Width() * subcols;
+    auto x = (seed.first - tiles.TileBounds().minx()) / tiles.TileBounds().Width() * subcols; // Width表示全球范围的跨度，height同理
     auto y = (seed.second - tiles.TileBounds().miny()) / tiles.TileBounds().Height() * subrows;
     auto subdivision = static_cast<int32_t>(y) * subcols + static_cast<int32_t>(x);
     queued.emplace(subdivision);
