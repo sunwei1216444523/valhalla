@@ -434,6 +434,7 @@ void BuildTileSet(const std::string& ways_file,
   }
   auto tz_conn = make_spatialite_cache(tz_db_handle);
 
+  // 在此处获取tiles的具体参数，和binDim相关
   const auto& tiling = TileHierarchy::levels().back().tiles;
 
   // Method to get the shape for an edge - since LL is stored as a pair of
