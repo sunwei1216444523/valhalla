@@ -161,6 +161,7 @@ function(valhalla_module)
   endif()
 endfunction()
 
+## robin-hood-hash性能上比std以及Google的absl的表现都要好，所以引入，参考https://sf-zhou.github.io/programming/robin_hood_hashing.html
 add_subdirectory(${VALHALLA_SOURCE_DIR}/third_party/robin-hood-hashing ${CMAKE_BINARY_DIR}/third_party/robin-hood-hashing)
 SET(CPP_STATSD_STANDALONE OFF CACHE BOOL "ignore test targets" FORCE)
 add_subdirectory(${VALHALLA_SOURCE_DIR}/third_party/cpp-statsd-client ${CMAKE_BINARY_DIR}/third_party/cpp-statsd-client)
