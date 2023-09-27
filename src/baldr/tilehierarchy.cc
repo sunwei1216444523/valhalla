@@ -9,6 +9,7 @@ namespace baldr {
 
 const std::vector<TileLevel>& TileHierarchy::levels() {
   // Static tile levels
+  // 注意这里的 最后一个参数 kBinDim 表示的就是bin的划分
   static const std::vector<TileLevel> levels_ = {
 
       TileLevel{0, stringToRoadClass("Primary"), "highway",
